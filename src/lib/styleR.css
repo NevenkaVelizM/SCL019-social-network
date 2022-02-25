@@ -1,0 +1,10 @@
+infoContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+logoApp{
+    color: black;
+    font-family: monospace;
+}
