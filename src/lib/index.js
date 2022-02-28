@@ -53,9 +53,17 @@ export const myFunction = () => {
   // `;
 
   // infoContainer.appendChild(buttonContinue);
+
+  //prueba boton de registro
   const buttonContinue= document.getElementById("submit-register");
-  buttonContinue.addEventListener("click", registerUser);
-  console.log(buttonContinue);
+  buttonContinue.addEventListener("click", () => {
+    const userName=document.getElementById("registerNameLogin").value;
+    const email= document.getElementById("emailLogin").value;
+    const password= document.getElementById("passwordLogin").value;
+    registerUser(userName, email, password);
+    console.log(registerUser);
+  });
+  // // console.log(buttonContinue)
 
 
   //botón de google
@@ -69,3 +77,5 @@ export const myFunction = () => {
   buttonGoogle.addEventListener("click", loginWithGoogle);
 
 };
+
+

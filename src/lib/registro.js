@@ -24,8 +24,8 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
 //registro con email y constraseña
-export const registerUser= (email, password, userName) => {
-    createUserWithEmailAndPassword(auth, email, password, userName)
+export const registerUser= (userName, email, password) => {
+    createUserWithEmailAndPassword(auth, userName, email, password)
   .then((userCredential) => {
     // Signed in
     const user = userCredential.user;
