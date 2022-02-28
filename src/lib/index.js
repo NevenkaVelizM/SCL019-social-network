@@ -1,3 +1,4 @@
+import { loginWithGoogle, registerUser } from "./registro.js"; 
 // aqui exportaras las funciones que necesites
 
 export const myFunction = () => {
@@ -27,19 +28,54 @@ export const myFunction = () => {
   userData.innerHTML = `
   <form id="formLogin" class="FormLogin">
   <div class="name"> Name </div>
-  <input type="text" id="registerNameLogin" class="registerNameLogin" placeholder= "Enter your Name"/>
-  <div class="nickName"> NickName </div>
-  <input type="text" id="nickNameLogin" class="nickNameLogin" placeholder= "Enter your nickName"/>
-  <div class="email"> Name </div>
-  <input type="email" id="emailLogin" class="emailLogin" placeholder= "Enter mail"/>
+  <input type="text" id="registerNameLogin" class="registerNameLogin" placeholder= "Enter your name"/>
+  <div class="nickName"> Nickname </div>
+  <input type="text" id="nickNameLogin" class="nickNameLogin" placeholder= "Enter your nickname"/>
+  <div class="email"> E-mail </div>
+  <input type="email" id="emailLogin" class="emailLogin" placeholder= "Enter e-mail"/>
   <div class="passwordLogin"> Password </div>
   <input type="password" id="passwordLogin" class="passwordLogin" placeholder= "Enter password" />
+  <input type="submit" id="submit-register" class="submit-register" value="Continue">
   </form>
   </div>
   `;
  
   infoContainer.appendChild(userData);
-    
+  
 
   console.log('Hola mundo!');
+
+  //boton de continuar
+  // const buttonContinue = document.createElement("div");
+  // buttonContinue.className = "buttonContinue";
+  // buttonContinue.innerHTML = `
+  // <input type="button" id="buttonContinue" class="buttonContinue" value="Continue">
+  // `;
+
+  // infoContainer.appendChild(buttonContinue);
+
+  //prueba boton de registro
+  const buttonContinue= document.getElementById("submit-register");
+  buttonContinue.addEventListener("click", () => {
+    const userName=document.getElementById("registerNameLogin").value;
+    const email= document.getElementById("emailLogin").value;
+    const password= document.getElementById("passwordLogin").value;
+    registerUser(userName, email, password);
+    console.log(registerUser);
+  });
+  // // console.log(buttonContinue)
+
+
+  //botón de google
+  const buttonGoogle = document.createElement("div");
+  buttonGoogle.className = "buttonGoogle";
+  buttonGoogle.innerHTML = `
+  <input type="button" id="buttonGoogle" class="buttonGoogle" value="Sign In with Google">
+  `;
+
+  infoContainer.appendChild(buttonGoogle);
+  buttonGoogle.addEventListener("click", loginWithGoogle);
+
 };
+
+
