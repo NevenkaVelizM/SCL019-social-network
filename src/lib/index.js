@@ -33,7 +33,7 @@ export const myFunction = () => {
   <input type="text" id="nickNameLogin" class="nickNameLogin" placeholder= "Enter your nickname"/>
   <div class="email"> E-mail </div>
   <input type="email" id="emailLogin" class="emailLogin" placeholder= "Enter e-mail"/>
-  <div class="passwordLogin"> Password </div>
+  <div class="password"> Password </div>
   <input type="password" id="passwordLogin" class="passwordLogin" placeholder= "Enter password" />
   <input type="submit" id="submit-register" class="submit-register" value="Continue">
   </form>
@@ -65,6 +65,11 @@ export const myFunction = () => {
   });
   // // console.log(buttonContinue)
 
+//SECCION FINAL DEL REGISTRO
+
+const footerRegister = document.createElement("div");
+footerRegister.className = "footerRegister"
+infoContainer.appendChild(footerRegister)
 
   //botón de google
   const buttonGoogle = document.createElement("div");
@@ -73,7 +78,7 @@ export const myFunction = () => {
   <input type="button" id="buttonGoogle" class="buttonGoogle" value="Sign In with Google">
   `;
 
-  infoContainer.appendChild(buttonGoogle);
+  footerRegister.appendChild(buttonGoogle);
   buttonGoogle.addEventListener("click", loginWithGoogle);
 
 };
