@@ -73,7 +73,7 @@ infoContainer.appendChild(footerRegister)
 
   //botón de google
   const buttonGoogle = document.createElement("div");
-  buttonGoogle.className = "buttonGoogle";
+  buttonGoogle.className = "btnGoogle";
   buttonGoogle.innerHTML = `
   <input type="button" id="buttonGoogle" class="buttonGoogle" value="Sign In with Google">
   `;

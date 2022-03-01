@@ -84,12 +84,12 @@ body{
     justify-content: center;
     align-items: center; 
     margin-top: 40px;
-    margin-left: 10px;
+    margin-left: 5px;
     background-color: #918d8d;
     color: white;
-    font-size: 1.5em ;
+    font-size: 1.45em ;
     font-family:'Fira Code', monospace;
-    width: 10em;
+    width: 10.5em;
     border-radius: 3px; 
     box-shadow: 2px 5px 4px 0px #00000040;
     transition: all 0.5s;
@@ -115,11 +115,11 @@ body{
 .buttonGoogle{
     display: flex; 
     justify-content: center;
-    align-items: center;
+    align-items: center; 
     margin-top: 20px;  
     width: 260px;
     height: 40px; 
-     margin-left: 20px;  
+    margin-left: 25px;   
     color: white;
     font-size: 1.10em ;
     font-family:'Fira Code', monospace;
