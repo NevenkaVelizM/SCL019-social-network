@@ -41,7 +41,7 @@ export const myFunction = () => {
 
   infoContainer.appendChild(userData);
 
-  console.log('Hola mundo!');
+  console.log("Hola mundo!");
 
   // boton de continuar
   // const buttonContinue = document.createElement("div");
@@ -79,4 +79,28 @@ export const myFunction = () => {
 
   footerRegister.appendChild(buttonGoogle);
   buttonGoogle.addEventListener("click", loginWithGoogle);
+
+  // Link para redireccionar a Login
+
+  // Seccion
+  const sectionReturn = document.createElement("div");
+  sectionReturn.className = "sectionReturn";
+  footerRegister.appendChild(sectionReturn);
+
+  const returnLogin = document.createElement("div");
+  returnLogin.className = "returnLogin";
+  returnLogin.textContent = "Do you already have an account?. ";
+
+  const link = document.createElement("a");
+  link.className = "linkReturnLogin";
+  link.textContent = "Sign In";
+
+  link.addEventListener("click", function () {
+    link.href = "#";
+  });
+
+  returnLogin + link;
+
+  sectionReturn.appendChild(returnLogin);
+  sectionReturn.appendChild(link);
 };
