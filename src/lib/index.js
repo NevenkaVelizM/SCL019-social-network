@@ -1,4 +1,6 @@
-import { loginWithGoogle, registerUser } from './registro.js';
+
+import { loginWithGoogle, registerUser } from "./registro.js";
+
 // aqui exportaras las funciones que necesites
 
 export const myFunction = () => {
@@ -9,6 +11,7 @@ export const myFunction = () => {
   document.getElementById('root').appendChild(infoContainer);
 
   // Ubicacion del Logo en la pagina
+
   const logoApp = document.createElement('div');
   logoApp.className = 'logoApp';
   logoApp.textContent = '</>';
@@ -18,6 +21,7 @@ export const myFunction = () => {
   const registerText = document.createElement('div');
   registerText.className = 'registerText';
   registerText.textContent = 'REGISTER';
+
   infoContainer.appendChild(registerText);
 
   // Creacion de los campos de texto
@@ -39,6 +43,7 @@ export const myFunction = () => {
   </form>
   </div>
   `;
+
   infoContainer.appendChild(userData);
   // console.log('Hola mundo!');
 
@@ -59,6 +64,7 @@ export const myFunction = () => {
     }
   });
 
+
   // boton de continuar
   // const buttonContinue = document.createElement("div");
   // buttonContinue.className = "buttonContinue";
@@ -69,16 +75,19 @@ export const myFunction = () => {
   // infoContainer.appendChild(buttonContinue);
 
   // prueba boton de registro
+
   const buttonContinue = document.getElementById('submit-register');
   buttonContinue.addEventListener('click', () => {
     const userName = document.getElementById('registerNameLogin').value;
     const email = document.getElementById('emailLogin').value;
     const password = document.getElementById('passwordLogin').value;
+
     registerUser(userName, email, password);
     // console.log(registerUser);
   });
   // // console.log(buttonContinue)
   // SECCION FINAL DEL REGISTRO
+
 
   const footerRegister = document.createElement('div');
   footerRegister.className = 'footerRegister';
@@ -87,6 +96,7 @@ export const myFunction = () => {
   // botón de google
   const buttonGoogle = document.createElement('div');
   buttonGoogle.className = 'btnGoogle';
+
   buttonGoogle.innerHTML = `
   <input type="button" id="buttonGoogle" class="buttonGoogle" value="Sign In with Google">
   `;
@@ -94,9 +104,9 @@ export const myFunction = () => {
   footerRegister.appendChild(buttonGoogle);
   buttonGoogle.addEventListener('click', loginWithGoogle);
 
-  //Link para redireccionar a Login
+  // Link para redireccionar a Login
 
-  //Seccion 
+  // Seccion
   const sectionReturn = document.createElement("div");
   sectionReturn.className = "sectionReturn";
   footerRegister.appendChild(sectionReturn);
@@ -104,18 +114,17 @@ export const myFunction = () => {
   const returnLogin = document.createElement("div");
   returnLogin.className = "returnLogin";
   returnLogin.textContent = "Do you already have an account?. ";
-  
+
   const link = document.createElement("a");
-  link.className= "linkReturnLogin";
+  link.className = "linkReturnLogin";
   link.textContent = "Sign In";
 
-  link.addEventListener("click", function(){
-    link.href ="#";
+  link.addEventListener("click", function () {
+    link.href = "#";
   });
 
   returnLogin + link;
- 
+
   sectionReturn.appendChild(returnLogin);
   sectionReturn.appendChild(link);
-
 };
