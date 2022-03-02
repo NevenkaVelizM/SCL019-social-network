@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js';
 import {
   getAuth,
   onAuthStateChanged,
@@ -11,12 +11,14 @@ import {
 
 import { firebaseConfig } from "./config.js";
 
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
 // registro con email y constraseña
 export const registerUser = (userName, email, password) => {
+
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
@@ -24,12 +26,15 @@ export const registerUser = (userName, email, password) => {
       user.displayName = userName;
       // console.log(user);
       // ...
+
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+
       console.log(errorCode, errorMessage);
       // ..
+
     });
 };
 
@@ -39,20 +44,24 @@ export const loginWithGoogle = () => {
   signInWithPopup(auth, provider)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
+
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+
       // ...
     })
     .catch((error) => {
       // Handle Errors here.
+
       const errorCode = error.code;
       const errorMessage = error.message;
       // The email of the user's account used.
       const email = error.email;
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
+
       // ...
     });
 };
@@ -71,3 +80,4 @@ export const activeUser = () => {
     }
   });
 };
+
