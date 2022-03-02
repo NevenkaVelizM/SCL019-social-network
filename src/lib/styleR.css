@@ -135,3 +135,11 @@ body{
     transition: 0.5s;
     
   } 
+
+  .iconEye{
+    color: white;
+    position: absolute;
+    padding: 9px;
+    left: 270px;
+    cursor: pointer;
+  }
