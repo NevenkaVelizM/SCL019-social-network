@@ -1,27 +1,26 @@
-import { loginWithGoogle, registerUser } from "./registro.js"; 
+import { loginWithGoogle, registerUser } from "./registro.js";
 // aqui exportaras las funciones que necesites
 
 export const myFunction = () => {
   // aqui va el DOM de nuestra pagina de registro
-  
   // Creamos el contenedor de toda la seccion
   const infoContainer = document.createElement("div");
   infoContainer.className = "infoContainer";
   document.getElementById("root").appendChild(infoContainer);
 
-  //Ubicacion del Logo en la pagina
+  // Ubicacion del Logo en la pagina
   const logoApp = document.createElement("div");
   logoApp.className = "logoApp";
-  logoApp.textContent = '</>';
+  logoApp.textContent = "</>";
   infoContainer.appendChild(logoApp);
 
-  //Ubicacion del texto REGISTER
-  const registerText = document.createElement("div")
-  registerText.className = "registerText"
-  registerText.textContent = 'REGISTER';
+  // Ubicacion del texto REGISTER
+  const registerText = document.createElement("div");
+  registerText.className = "registerText";
+  registerText.textContent = "REGISTER";
   infoContainer.appendChild(registerText);
 
-  //Creacion de los campos de texto
+  // Creacion de los campos de texto
 
   const userData = document.createElement("div");
   userData.className = "userData";
@@ -39,13 +38,12 @@ export const myFunction = () => {
   </form>
   </div>
   `;
- 
+
   infoContainer.appendChild(userData);
-  
 
-  console.log('Hola mundo!');
+  console.log("Hola mundo!");
 
-  //boton de continuar
+  // boton de continuar
   // const buttonContinue = document.createElement("div");
   // buttonContinue.className = "buttonContinue";
   // buttonContinue.innerHTML = `
@@ -54,24 +52,25 @@ export const myFunction = () => {
 
   // infoContainer.appendChild(buttonContinue);
 
-  //prueba boton de registro
-  const buttonContinue= document.getElementById("submit-register");
-  buttonContinue.addEventListener("click", () => {
-    const userName=document.getElementById("registerNameLogin").value;
-    const email= document.getElementById("emailLogin").value;
-    const password= document.getElementById("passwordLogin").value;
+  // prueba boton de registro
+  const buttonContinue = document.getElementById("submit-register");
+  buttonContinue.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const userName = document.getElementById("registerNameLogin").value;
+    const email = document.getElementById("emailLogin").value;
+    const password = document.getElementById("passwordLogin").value;
     registerUser(userName, email, password);
     console.log(registerUser);
   });
   // // console.log(buttonContinue)
 
-//SECCION FINAL DEL REGISTRO
+  // SECCION FINAL DEL REGISTRO
 
-const footerRegister = document.createElement("div");
-footerRegister.className = "footerRegister"
-infoContainer.appendChild(footerRegister)
+  const footerRegister = document.createElement("div");
+  footerRegister.className = "footerRegister";
+  infoContainer.appendChild(footerRegister);
 
-  //botón de google
+  // botón de google
   const buttonGoogle = document.createElement("div");
   buttonGoogle.className = "btnGoogle";
   buttonGoogle.innerHTML = `
@@ -81,9 +80,9 @@ infoContainer.appendChild(footerRegister)
   footerRegister.appendChild(buttonGoogle);
   buttonGoogle.addEventListener("click", loginWithGoogle);
 
-  //Link para redireccionar a Login
+  // Link para redireccionar a Login
 
-  //Seccion 
+  // Seccion
   const sectionReturn = document.createElement("div");
   sectionReturn.className = "sectionReturn";
   footerRegister.appendChild(sectionReturn);
@@ -91,20 +90,17 @@ infoContainer.appendChild(footerRegister)
   const returnLogin = document.createElement("div");
   returnLogin.className = "returnLogin";
   returnLogin.textContent = "Do you already have an account?. ";
-  
+
   const link = document.createElement("a");
-  link.className= "linkReturnLogin";
+  link.className = "linkReturnLogin";
   link.textContent = "Sign In";
 
-  link.addEventListener("click", function(){
-    link.href ="#";
+  link.addEventListener("click", function () {
+    link.href = "#";
   });
 
   returnLogin + link;
- 
+
   sectionReturn.appendChild(returnLogin);
   sectionReturn.appendChild(link);
-
 };
-
-
