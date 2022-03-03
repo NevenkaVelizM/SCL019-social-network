@@ -1,6 +1,5 @@
 
-
-import { loginWithGoogle, registerUser } from "./registro.js";
+import { loginWithGoogle, registerUser } from "./firebase.js";
 
 
 // aqui exportaras las funciones que necesites
@@ -33,14 +32,14 @@ export const myFunction = () => {
   userData.innerHTML = `
   <form id="formLogin" class="FormLogin">
   <div class="name"> Name </div>
-  <input type="text" id="registerNameLogin" class="registerNameLogin" placeholder= "Enter your name"/>
+  <input type="text" id="registerNameLogin" class="registerNameLogin" placeholder= "Enter your name" autocomplete= "off" required/>
   <div class="nickName"> Nickname </div>
-  <input type="text" id="nickNameLogin" class="nickNameLogin" placeholder= "Enter your nickname"/>
+  <input type="text" id="nickNameLogin" class="nickNameLogin" placeholder= "Enter your nickname" autocomplete= "off"/>
   <div class="email"> E-mail </div>
-  <input type="email" id="emailLogin" class="emailLogin" placeholder= "Enter e-mail"/>
+  <input type="email" id="emailLogin" class="emailLogin" placeholder= "Enter e-mail" autocomplete= "off" required />
   <div class="password"> Password </div>
   <span class="iconEye"><i id="checkEye" class="fas fa-eye-slash"></i></span>
-  <input type="password" id="passwordLogin" class="passwordLogin" placeholder= "Enter password"/>
+  <input type="password" id="passwordLogin" class="passwordLogin" placeholder= "Enter password" required/>
   <input type="submit" id="submit-register" class="submit-register" value="Continue">
   </form>
   </div>
