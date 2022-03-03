@@ -77,13 +77,14 @@ export const myFunction = () => {
   // prueba boton de registro
 
   const buttonContinue = document.getElementById('submit-register');
-  buttonContinue.addEventListener('click', () => {
+  buttonContinue.addEventListener('submit', (e) => {
+    e.preventDefault();
     const userName = document.getElementById('registerNameLogin').value;
     const email = document.getElementById('emailLogin').value;
     const password = document.getElementById('passwordLogin').value;
 
     registerUser(userName, email, password);
-    // console.log(registerUser);
+    console.log(registerUser);
   });
   // // console.log(buttonContinue)
   // SECCION FINAL DEL REGISTRO
