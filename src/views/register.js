@@ -1,33 +1,34 @@
 
 import { loginWithGoogle, registerUser } from "./firebase.js";
 
+
 // aqui exportaras las funciones que necesites
 
 export const myFunction = () => {
   // aqui va el DOM de nuestra pagina de registro
   // Creamos el contenedor de toda la seccion
-  const infoContainer = document.createElement('div');
-  infoContainer.className = 'infoContainer';
-  document.getElementById('root').appendChild(infoContainer);
+  const infoContainer = document.createElement("div");
+  infoContainer.className = "infoContainer";
+  document.getElementById("root").appendChild(infoContainer);
 
   // Ubicacion del Logo en la pagina
 
-  const logoApp = document.createElement('div');
-  logoApp.className = 'logoApp';
-  logoApp.textContent = '</>';
+  const logoApp = document.createElement("div");
+  logoApp.className = "logoApp";
+  logoApp.textContent = "</>";
   infoContainer.appendChild(logoApp);
 
   // Ubicacion del texto REGISTER
-  const registerText = document.createElement('div');
-  registerText.className = 'registerText';
-  registerText.textContent = 'REGISTER';
-
+  const registerText = document.createElement("div");
+  registerText.className = "registerText";
+  registerText.textContent = "REGISTER";
+  
   infoContainer.appendChild(registerText);
 
   // Creacion de los campos de texto
 
-  const userData = document.createElement('div');
-  userData.className = 'userData';
+  const userData = document.createElement("div");
+  userData.className = "userData";
   userData.innerHTML = `
   <form id="formLogin" class="FormLogin">
   <div class="name"> Name </div>
@@ -48,19 +49,19 @@ export const myFunction = () => {
   // console.log('Hola mundo!');
 
   // Mostrar y ocultar contraseña
-  const iconEye = userData.querySelector('.iconEye');
-  const checkEye = userData.querySelector('#checkEye');
-  const passwordLogin = userData.querySelector('#passwordLogin');
+  const iconEye = userData.querySelector(".iconEye");
+  const checkEye = userData.querySelector("#checkEye");
+  const passwordLogin = userData.querySelector("#passwordLogin");
 
-  iconEye.addEventListener('click', () => {
-    if (passwordLogin.type === 'password') {
-      passwordLogin.type = 'text';
-      checkEye.classList.remove('fa-eye-slash');
-      checkEye.classList.add('fa-eye');
+  iconEye.addEventListener("click", () => {
+    if (passwordLogin.type === "password") {
+      passwordLogin.type = "text";
+      checkEye.classList.remove("fa-eye-slash");
+      checkEye.classList.add("fa-eye");
     } else {
-      passwordLogin.type = 'password';
-      checkEye.classList.add('fa-eye-slash');
-      checkEye.classList.remove('fa-eye');
+      passwordLogin.type = "password";
+      checkEye.classList.add("fa-eye-slash");
+      checkEye.classList.remove("fa-eye");
     }
   });
 
@@ -90,20 +91,20 @@ export const myFunction = () => {
   // SECCION FINAL DEL REGISTRO
 
 
-  const footerRegister = document.createElement('div');
-  footerRegister.className = 'footerRegister';
+  const footerRegister = document.createElement("div");
+  footerRegister.className = "footerRegister";
   infoContainer.appendChild(footerRegister);
 
   // botón de google
-  const buttonGoogle = document.createElement('div');
-  buttonGoogle.className = 'btnGoogle';
+  const buttonGoogle = document.createElement("div");
+  buttonGoogle.className = "btnGoogle";
 
   buttonGoogle.innerHTML = `
   <input type="button" id="buttonGoogle" class="buttonGoogle" value="Sign In with Google">
   `;
 
   footerRegister.appendChild(buttonGoogle);
-  buttonGoogle.addEventListener('click', loginWithGoogle);
+  buttonGoogle.addEventListener("click", loginWithGoogle);
 
   // Link para redireccionar a Login
 
@@ -121,7 +122,9 @@ export const myFunction = () => {
   link.textContent = "Sign In";
 
   link.addEventListener("click", function () {
+    
     link.href = "#";
+
   });
 
   returnLogin + link;
