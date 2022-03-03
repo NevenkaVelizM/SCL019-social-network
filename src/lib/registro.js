@@ -2,7 +2,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-vars */
 // Import the functions you need from the SDKs you need
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js';
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
 import {
   getAuth,
   onAuthStateChanged,
@@ -35,7 +35,11 @@ export const registerUser = (userName, email, password) => {
       const errorCode = error.code;
       const errorMessage = error.message;
 
+
       console.log(errorCode, errorMessage);
+      // ..
+
+      // console.log(errorCode, errorMessage);
       // ..
 
     });
@@ -54,8 +58,7 @@ export const loginWithGoogle = () => {
       const user = result.user;
 
       // ...
-    })
-    .catch((error) => {
+    }).catch((error) => {
       // Handle Errors here.
 
       const errorCode = error.code;
