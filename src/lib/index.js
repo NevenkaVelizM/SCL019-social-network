@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-console */
+/* eslint-disable prefer-arrow-callback */
+/* eslint-disable func-names */
 import { loginWithGoogle, registerUser } from "./registro.js";
 // aqui exportaras las funciones que necesites
 
