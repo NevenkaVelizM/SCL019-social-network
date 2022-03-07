@@ -1,0 +1,92 @@
+@media (min-width: 950px){
+    
+    /*Register Section*/
+ body{
+    background-color: #121111;
+    position: relative;
+    width: 1025px;
+    height: 655px; 
+ }
+ #root{
+    position: absolute;
+    width: 955px;
+    height: 500px;
+    left: 250px;
+    top: 110px;
+    background-color: #6B6A6A;
+    
+
+ }
+ .infoContainer{
+    position: relative;
+  }
+        
+ .logoApp{
+    font-size: 20px;
+    position: absolute;
+    width: 44px;
+    height: 29px;
+    left: 120px;
+    top: 70px;
+    }
+ .registerText{
+    font-size: 25px;
+    position: absolute;
+    left: 148px;
+    top: 48px;
+    }
+ .userData{
+    position: absolute; 
+    margin-top: 118px;
+    margin-left: 250px;
+    } 
+ .FormLogin{
+    margin-left: 10px;
+    }
+ .name, .nickName, .email, .password{
+    font-size: 18px;
+    margin-top: 7px;
+    margin-bottom: 3px;
+    color: white;
+    }
+ .registerNameLogin, .nickNameLogin, .emailLogin, .passwordLogin{
+
+    display: flex;
+    font-size: 12px;
+    padding: 3px;
+    border: 2px solid;
+    border-color: #03A014;
+    background-color: #6B6A6A;
+    margin: 5px;  
+    outline:none;    
+    } 
+ .submit-register{
+    margin-top: 32px;
+    margin-left: 20px;
+    font-size: 18px ;
+    }
+ .iconEye{
+    position: absolute;
+    padding: 4px;
+    left: 173px;
+      
+ }
+ .footerRegister{
+    margin-top: 287px;
+    margin-left: 589px;
+ }
+ .rabbit-img{
+    display: flex;
+    transform: scaleX(-1);
+    width: 25%;
+    margin-left: 225px;
+    margin-top: 55px;
+ }
+ .sectionReturn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+    margin-top: 3px;
+ }
+}
