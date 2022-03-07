@@ -152,8 +152,8 @@ body{
     height: 100px; */
     
 }
- /*COMENTAMOS ESTA SECCION MIENTRAS LA UBICAMOS EN OTRO VIEW*/
-/* .buttonGoogle{
+ 
+ .buttonGoogle{
     display: flex; 
     justify-content: center;
     align-items: center; 
@@ -175,7 +175,7 @@ body{
     padding-left:8px;
     transition: 0.5s;
     
-  }  */
+  }  
 
   .iconEye{
     color: white;

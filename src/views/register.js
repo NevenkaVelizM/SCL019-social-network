@@ -3,13 +3,20 @@ import { root } from "../main.js";
 
 // aqui exportaras las funciones que necesites
 
-export const myFunction = () => {
+export const viewRegister = () => {
+
   //console.log("me ejecuto segundo");
   // aqui va el DOM de nuestra pagina de registro
+  //Creamos el padre de toda la seccion Register
+
+  const registerContainer = document.createElement("div");
+  registerContainer.className = "registerContainer";
+  root.appendChild(registerContainer);
+
   // Creamos el contenedor de toda la seccion
   const infoContainer = document.createElement("div");
-  // infoContainer.className = "infoContainer";
-  // document.getElementById("root").appendChild(infoContainer);
+  infoContainer.className = "infoContainer";
+  registerContainer.appendChild(infoContainer);
 
   // Ubicacion del Logo en la pagina
 
@@ -149,7 +156,7 @@ export const myFunction = () => {
 
   sectionReturn.appendChild(returnLogin);
   sectionReturn.appendChild(link);
-  return sectionReturn;
+  // return sectionReturn;
 };
 
 

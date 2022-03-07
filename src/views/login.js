@@ -2,11 +2,17 @@ import { loginWithGoogle } from "./firebase.js";
 import { root } from "../main.js"
 
 export const viewLogin = () => {
-  // aqui va el DOM de nuestra pagina de registro
+  // aqui va el DOM de nuestra pagina de Login
+  //Creamos el padre de toda la seccion Login
+
+  const loginContainer = document.createElement("div");
+  loginContainer.className = "loginContainer";
+  root.appendChild(loginContainer);
+
   // Creamos el contenedor de toda la seccion
   const infoContainer = document.createElement("div");
   infoContainer.className = "infoContainer";
-  document.getElementById("root").appendChild(infoContainer);
+  loginContainer.appendChild(infoContainer);
 
   // Ubicacion del Logo en la pagina
 
@@ -28,11 +34,11 @@ export const viewLogin = () => {
   userData.className = "userData";
   userData.innerHTML = `
     <form id="formLogin" class="FormLogin">
-    <div class="email"> E-mail </div>
-    <input type="email" id="emailLogin" class="emailLogin" placeholder= "Enter e-mail" autocomplete= "off" required />
+    <div class="email"> User </div>
+    <input type="email" id="emailLogin" class="emailLogin" placeholder= "name || nickName || email" autocomplete= "off" size ="25" required />
     <div class="password"> Password </div>
     <span class="iconEye"><i id="checkEye" class="fas fa-eye-slash"></i></span>
-    <input type="password" id="passwordLogin" class="passwordLogin" placeholder= "Enter password" required/>
+    <input type="password" id="passwordLogin" class="passwordLogin" placeholder= "Enter password" size ="25" required/>
     <input type="submit" id="submit-register" class="submit-register" value="Continue">
     </form>
     </div>
@@ -71,4 +77,36 @@ export const viewLogin = () => {
   `;
   footerRegister.appendChild(buttonGoogle);
   buttonGoogle.addEventListener("click", loginWithGoogle);
+
+
+  const rabbit = document.createElement("img");
+  rabbit.className = "rabbit-img"
+  rabbit.setAttribute("src", "./assets/white-rabbit.png");
+  footerRegister.appendChild(rabbit);
+
+
+  // Seccion link to Register
+  const sectionReturn = document.createElement("div");
+  sectionReturn.className = "sectionReturn";
+  footerRegister.appendChild(sectionReturn);
+
+  const returnLogin = document.createElement("div");
+  returnLogin.className = "returnLogin";
+  returnLogin.textContent = "If you don’t have an account ";
+  sectionReturn.appendChild(returnLogin);
+
+  const link = document.createElement("a");
+  link.className = "linkReturnLogin";
+  link.textContent = "Register Here";
+  sectionReturn.appendChild(link);
+
+  link.addEventListener("click", () => {
+    link.href = "#/register";
+  });
+
+ 
+ 
+  
+  return sectionReturn;
+  
 };

@@ -1,4 +1,4 @@
-import { myFunction } from "../views/register.js";
+import { viewRegister } from "../views/register.js";
 import { viewLogin } from "../views/login.js";
 
 export const changeView = (hash) => {
@@ -11,7 +11,7 @@ export const changeView = (hash) => {
       container.appendChild(viewLogin());
       break;
     case "#/register":
-      container.appendChild(myFunction());
+      container.appendChild(viewRegister());
       break;
   }
 };
