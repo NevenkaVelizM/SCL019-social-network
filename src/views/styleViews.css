@@ -34,7 +34,7 @@ body{
     display: flex;
     justify-content: flex-end;
 }
-.registerText{
+.registerText, .loginText{
     color: white;
     font-size: 2em;
     font-style: bold;
@@ -156,13 +156,14 @@ body{
   .returnLogin{
       display:flex;
       justify-content: center;
-     
       font-size: 0.70em;
       color:#9b9898;
   }
-  .linkReturnLogin{
+  .linkReturnLogin{ 
     display:flex;
     justify-content: center;
     font-size: 0.80em;
     color:#2609ca;
+    cursor: pointer;
   }
+  

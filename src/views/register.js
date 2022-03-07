@@ -1,6 +1,4 @@
-
-import { loginWithGoogle, registerUser } from "./firebase.js";
-
+import { registerUser } from "./firebase.js"
 
 // aqui exportaras las funciones que necesites
 
@@ -22,7 +20,7 @@ export const myFunction = () => {
   const registerText = document.createElement("div");
   registerText.className = "registerText";
   registerText.textContent = "REGISTER";
-  
+
   infoContainer.appendChild(registerText);
 
   // Creacion de los campos de texto
@@ -64,7 +62,10 @@ export const myFunction = () => {
       checkEye.classList.remove("fa-eye");
     }
   });
-
+  const passwordRequired = document.getElementById("passwordLogin");
+  passwordRequired.onkeyup = function() {
+    document.getElementById("passwordRequiredText").style.display = "block";
+  };
 
   // boton de continuar
   // const buttonContinue = document.createElement("div");
@@ -77,34 +78,22 @@ export const myFunction = () => {
 
   // prueba boton de registro
 
-  const buttonContinue = document.getElementById('submit-register');
-  buttonContinue.addEventListener('submit', (e) => {
+  const buttonContinue = document.getElementById("submit-register");
+  buttonContinue.addEventListener("click", (e) => {
     e.preventDefault();
-    const userName = document.getElementById('registerNameLogin').value;
-    const email = document.getElementById('emailLogin').value;
-    const password = document.getElementById('passwordLogin').value;
+    const userName = document.getElementById("registerNameLogin").value;
+    const email = document.getElementById("emailLogin").value;
+    const password = document.getElementById("passwordLogin").value;
 
     registerUser(userName, email, password);
-    console.log(registerUser);
+    // console.log(registerUser);
   });
   // // console.log(buttonContinue)
   // SECCION FINAL DEL REGISTRO
 
-
   const footerRegister = document.createElement("div");
   footerRegister.className = "footerRegister";
   infoContainer.appendChild(footerRegister);
-
-  // botón de google
-  const buttonGoogle = document.createElement("div");
-  buttonGoogle.className = "btnGoogle";
-
-  buttonGoogle.innerHTML = `
-  <input type="button" id="buttonGoogle" class="buttonGoogle" value="Sign In with Google">
-  `;
-
-  footerRegister.appendChild(buttonGoogle);
-  buttonGoogle.addEventListener("click", loginWithGoogle);
 
   // Link para redireccionar a Login
 
@@ -121,14 +110,14 @@ export const myFunction = () => {
   link.className = "linkReturnLogin";
   link.textContent = "Sign In";
 
-  link.addEventListener("click", function () {
-    
+  link.addEventListener("click", () => {
     link.href = "#";
-
   });
-
   returnLogin + link;
 
   sectionReturn.appendChild(returnLogin);
   sectionReturn.appendChild(link);
 };
+
+export const validateEmailRequire = document.getElementById("emailRequired");
+export const validateEmailInUse = document.querySelector(".emailInUseInvalid");
