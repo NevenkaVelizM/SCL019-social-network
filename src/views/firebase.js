@@ -14,16 +14,17 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
 import { firebaseConfig } from "./config.js";
+
 import {validateEmailRequire, validateEmailInUse} from "./register.js";
+
 
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
-// registro con email y constraseña
+// registro con email y contraseña (Registro de usuarios nuevos)
 export const registerUser = (userName, email, password) => {
-
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
@@ -31,6 +32,7 @@ export const registerUser = (userName, email, password) => {
       user.displayName = userName;
       // console.log(user);
       // ...
+
       emailVerificationRegister();
       alert("Email verification sent!");
       
@@ -38,10 +40,12 @@ export const registerUser = (userName, email, password) => {
 
      return (user);
 
+
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+
 
      if (errorCode === "auth/invalid-email"){
       validateEmailRequire.style.display = "block";
@@ -58,12 +62,13 @@ export const registerUser = (userName, email, password) => {
      
      }
       //console.log(errorCode, errorMessage);
+
       // ..
 
       // console.log(errorCode, errorMessage);
       // ..
-
     });
+
     return createUserWithEmailAndPassword
 };
 const emailVerificationRegister = () => {
@@ -72,6 +77,7 @@ const emailVerificationRegister = () => {
     // Email verification sent!
     // ...
   });
+
 };
 
 // login con google
@@ -115,4 +121,3 @@ export const activeUser = () => {
     }
   });
 };
-

@@ -1,6 +1,5 @@
-
-import { loginWithGoogle, registerUser } from "./firebase.js";
-
+import { registerUser } from "./firebase.js"
+import { root } from "../main.js";
 
 // aqui exportaras las funciones que necesites
 
@@ -9,8 +8,8 @@ export const myFunction = () => {
   // aqui va el DOM de nuestra pagina de registro
   // Creamos el contenedor de toda la seccion
   const infoContainer = document.createElement("div");
-  infoContainer.className = "infoContainer";
-  document.getElementById("root").appendChild(infoContainer);
+  // infoContainer.className = "infoContainer";
+  // document.getElementById("root").appendChild(infoContainer);
 
   // Ubicacion del Logo en la pagina
 
@@ -23,7 +22,7 @@ export const myFunction = () => {
   const registerText = document.createElement("div");
   registerText.className = "registerText";
   registerText.textContent = "REGISTER";
-  
+
   infoContainer.appendChild(registerText);
 
   // Creacion de los campos de texto
@@ -72,12 +71,14 @@ export const myFunction = () => {
     }
   });
 
+
   const passwordRequired = document.getElementById("passwordLogin");
    passwordRequired.onkeyup = function(){
    document.getElementById("passwordRequiredText").style.display = "block";
    };
 
   
+
 
   // boton de continuar
   // const buttonContinue = document.createElement("div");
@@ -90,24 +91,28 @@ export const myFunction = () => {
 
   // prueba boton de registro
 
-  const buttonContinue = document.getElementById('submit-register');
-  buttonContinue.addEventListener('click', (e) => {
+
+  const buttonContinue = document.getElementById("submit-register");
+  buttonContinue.addEventListener("click", (e) => {
+
     e.preventDefault();
-    const userName = document.getElementById('registerNameLogin').value;
-    const email = document.getElementById('emailLogin').value;
-    const password = document.getElementById('passwordLogin').value;
+    const userName = document.getElementById("registerNameLogin").value;
+    const email = document.getElementById("emailLogin").value;
+    const password = document.getElementById("passwordLogin").value;
 
     registerUser(userName, email, password);
-    //console.log(registerUser);
+
+    // console.log(registerUser);
+
   });
   // // console.log(buttonContinue)
   // SECCION FINAL DEL REGISTRO
-
 
   const footerRegister = document.createElement("div");
   footerRegister.className = "footerRegister";
   infoContainer.appendChild(footerRegister);
 
+  
   const rabbit = document.createElement("img");
   rabbit.className = "rabbit-img"
   rabbit.setAttribute("src", "./assets/white-rabbit.png");
@@ -138,18 +143,17 @@ export const myFunction = () => {
   link.className = "linkReturnLogin";
   link.textContent = "Sign In";
 
-  link.addEventListener("click", function () {
-    
+  link.addEventListener("click", () => {
     link.href = "#";
-
   });
-
-  returnLogin + link;
 
   sectionReturn.appendChild(returnLogin);
   sectionReturn.appendChild(link);
+  return sectionReturn;
 };
+
 
   export const validateEmailRequire = document.getElementById("emailRequired");
   export const validateEmailInUse = document.querySelector(".emailInUseInvalid");
   // console.log("me ejecuto primero");
+
