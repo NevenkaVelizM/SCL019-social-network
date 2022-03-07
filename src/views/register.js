@@ -4,6 +4,7 @@ import { root } from "../main.js";
 // aqui exportaras las funciones que necesites
 
 export const myFunction = () => {
+  //console.log("me ejecuto segundo");
   // aqui va el DOM de nuestra pagina de registro
   // Creamos el contenedor de toda la seccion
   const infoContainer = document.createElement("div");
@@ -31,14 +32,17 @@ export const myFunction = () => {
   userData.innerHTML = `
   <form id="formLogin" class="FormLogin">
   <div class="name"> Name </div>
-  <input type="text" id="registerNameLogin" class="registerNameLogin" placeholder= "Enter your name" autocomplete= "off" required/>
+  <input type="text" id="registerNameLogin" class="registerNameLogin" placeholder= "Enter your name" autocomplete= "off" size ="25"/>
   <div class="nickName"> Nickname </div>
-  <input type="text" id="nickNameLogin" class="nickNameLogin" placeholder= "Enter your nickname" autocomplete= "off"/>
+  <input type="text" id="nickNameLogin" class="nickNameLogin" placeholder= "Enter your nickname" autocomplete= "off" size ="25"/>
   <div class="email"> E-mail </div>
-  <input type="email" id="emailLogin" class="emailLogin" placeholder= "Enter e-mail" autocomplete= "off" required />
+  <input type="email" id="emailLogin" class="emailLogin" placeholder= "Enter e-mail" autocomplete= "off" size ="25" required/>
+  <span class="displayNone"><p id="emailRequired"> Error: invalid-email </p></span>
+  <span class="displayNone"><p id="emailInUse" class="emailInUseInvalid"> Error: email-already in use </p></span>
   <div class="password"> Password </div>
   <span class="iconEye"><i id="checkEye" class="fas fa-eye-slash"></i></span>
-  <input type="password" id="passwordLogin" class="passwordLogin" placeholder= "Enter password" required/>
+  <input type="password" id="passwordLogin" class="passwordLogin" placeholder= "Enter password" minlength="6" maxlength="8" size ="25"/>
+  <span class="displayNone"><p id="passwordRequiredText">  *Minimum 6 characters </p></span>
   <input type="submit" id="submit-register" class="submit-register" value="Continue">
   </form>
   </div>
@@ -46,6 +50,9 @@ export const myFunction = () => {
 
   infoContainer.appendChild(userData);
   // console.log('Hola mundo!');
+
+
+  
 
   // Mostrar y ocultar contraseña
   const iconEye = userData.querySelector(".iconEye");
@@ -63,10 +70,15 @@ export const myFunction = () => {
       checkEye.classList.remove("fa-eye");
     }
   });
+
+
   const passwordRequired = document.getElementById("passwordLogin");
-  passwordRequired.onkeyup = function() {
-    document.getElementById("passwordRequiredText").style.display = "block";
-  };
+   passwordRequired.onkeyup = function(){
+   document.getElementById("passwordRequiredText").style.display = "block";
+   };
+
+  
+
 
   // boton de continuar
   // const buttonContinue = document.createElement("div");
@@ -79,15 +91,19 @@ export const myFunction = () => {
 
   // prueba boton de registro
 
+
   const buttonContinue = document.getElementById("submit-register");
   buttonContinue.addEventListener("click", (e) => {
+
     e.preventDefault();
     const userName = document.getElementById("registerNameLogin").value;
     const email = document.getElementById("emailLogin").value;
     const password = document.getElementById("passwordLogin").value;
 
     registerUser(userName, email, password);
+
     // console.log(registerUser);
+
   });
   // // console.log(buttonContinue)
   // SECCION FINAL DEL REGISTRO
@@ -95,6 +111,22 @@ export const myFunction = () => {
   const footerRegister = document.createElement("div");
   footerRegister.className = "footerRegister";
   infoContainer.appendChild(footerRegister);
+
+  
+  const rabbit = document.createElement("img");
+  rabbit.className = "rabbit-img"
+  rabbit.setAttribute("src", "./assets/white-rabbit.png");
+  footerRegister.appendChild(rabbit);
+  // botón de google - QUEDA COMENTADO HASTA REUBICARLO EN LOGIN.JS
+  // const buttonGoogle = document.createElement("div");
+  // buttonGoogle.className = "btnGoogle";
+
+  // buttonGoogle.innerHTML = `
+  // <input type="button" id="buttonGoogle" class="buttonGoogle" value="Sign In with Google">
+  // `;
+
+  // footerRegister.appendChild(buttonGoogle);
+  // buttonGoogle.addEventListener("click", loginWithGoogle);
 
   // Link para redireccionar a Login
 
@@ -120,5 +152,8 @@ export const myFunction = () => {
   return sectionReturn;
 };
 
-export const validateEmailRequire = document.getElementById("emailRequired");
-export const validateEmailInUse = document.querySelector(".emailInUseInvalid");
+
+  export const validateEmailRequire = document.getElementById("emailRequired");
+  export const validateEmailInUse = document.querySelector(".emailInUseInvalid");
+  // console.log("me ejecuto primero");
+
