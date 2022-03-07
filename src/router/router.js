@@ -1,20 +1,18 @@
-import { components } from "../views/indexView.js";
+import { myFunction } from "../views/register.js";
+import { viewLogin } from "../views/login.js";
 
-export const changeView = (route) => {
+export const changeView = (hash) => {
   const container = document.getElementById("root");
   container.innerHTML = "";
-  switch (route) {
+  switch (hash) {
     case "":
     case "#":
     case "#/":
-      container.appendChild(components.login());
+      container.appendChild(viewLogin());
       break;
     case "#/register":
-      container.appendChild(components.register());
+      container.appendChild(myFunction());
       break;
-
-    default:
-      container.appendChild(components.Error404());
   }
 };
 // console.log("hola");

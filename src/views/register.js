@@ -1,4 +1,5 @@
 import { registerUser } from "./firebase.js"
+import { root } from "../main.js";
 
 // aqui exportaras las funciones que necesites
 
@@ -6,8 +7,8 @@ export const myFunction = () => {
   // aqui va el DOM de nuestra pagina de registro
   // Creamos el contenedor de toda la seccion
   const infoContainer = document.createElement("div");
-  infoContainer.className = "infoContainer";
-  document.getElementById("root").appendChild(infoContainer);
+  // infoContainer.className = "infoContainer";
+  // document.getElementById("root").appendChild(infoContainer);
 
   // Ubicacion del Logo en la pagina
 
@@ -113,10 +114,10 @@ export const myFunction = () => {
   link.addEventListener("click", () => {
     link.href = "#";
   });
-  returnLogin + link;
 
   sectionReturn.appendChild(returnLogin);
   sectionReturn.appendChild(link);
+  return sectionReturn;
 };
 
 export const validateEmailRequire = document.getElementById("emailRequired");

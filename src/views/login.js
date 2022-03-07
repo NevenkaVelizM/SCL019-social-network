@@ -1,4 +1,5 @@
 import { loginWithGoogle } from "./firebase.js";
+import { root } from "../main.js"
 
 export const viewLogin = () => {
   // aqui va el DOM de nuestra pagina de registro
