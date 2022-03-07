@@ -114,9 +114,17 @@
  .iconEye{
     position: absolute;
     padding: 4px;
-    left: 173px;
+    left: 195px;
       
  }
+ #passwordRequiredText{
+   display: none;
+   color: rgb(104, 5, 5);
+   font-size: 12px;
+   font-style: italic;
+   margin-left: 16px;
+   margin-top: 0;
+}
  .footerRegister{
     margin-top: 287px;
     margin-left: 589px;

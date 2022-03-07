@@ -5,6 +5,7 @@ import { loginWithGoogle, registerUser } from "./firebase.js";
 // aqui exportaras las funciones que necesites
 
 export const myFunction = () => {
+  //console.log("me ejecuto segundo");
   // aqui va el DOM de nuestra pagina de registro
   // Creamos el contenedor de toda la seccion
   const infoContainer = document.createElement("div");
@@ -36,7 +37,7 @@ export const myFunction = () => {
   <div class="nickName"> Nickname </div>
   <input type="text" id="nickNameLogin" class="nickNameLogin" placeholder= "Enter your nickname" autocomplete= "off" size ="25"/>
   <div class="email"> E-mail </div>
-  <input type="email" id="emailLogin" class="emailLogin" placeholder= "Enter e-mail" autocomplete= "off" size ="25"/>
+  <input type="email" id="emailLogin" class="emailLogin" placeholder= "Enter e-mail" autocomplete= "off" size ="25" required/>
   <span class="displayNone"><p id="emailRequired"> Error: invalid-email </p></span>
   <span class="displayNone"><p id="emailInUse" class="emailInUseInvalid"> Error: email-already in use </p></span>
   <div class="password"> Password </div>
@@ -97,7 +98,7 @@ export const myFunction = () => {
     const password = document.getElementById('passwordLogin').value;
 
     registerUser(userName, email, password);
-    console.log(registerUser);
+    //console.log(registerUser);
   });
   // // console.log(buttonContinue)
   // SECCION FINAL DEL REGISTRO
@@ -151,3 +152,4 @@ export const myFunction = () => {
 
   export const validateEmailRequire = document.getElementById("emailRequired");
   export const validateEmailInUse = document.querySelector(".emailInUseInvalid");
+  // console.log("me ejecuto primero");

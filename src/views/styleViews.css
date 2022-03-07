@@ -91,6 +91,7 @@ body{
 #passwordRequiredText{
     display: none;
     color: red;
+    font-size: 10px;
     font-style: italic;
 }
 #emailRequired{

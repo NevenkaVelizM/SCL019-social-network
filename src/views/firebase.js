@@ -9,6 +9,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
+  sendEmailVerification,
   // signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
@@ -30,7 +31,13 @@ export const registerUser = (userName, email, password) => {
       user.displayName = userName;
       // console.log(user);
       // ...
+      emailVerificationRegister();
+      alert("Email verification sent!");
+      
+
+
      return (user);
+
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -41,9 +48,13 @@ export const registerUser = (userName, email, password) => {
      };
 
      if (errorCode === "auth/email-already-in-use"){
-      validateEmailInUse.classList.remove(".emailInUse");
-      validateEmailInUse.createElement("div");
-      validateEmailInUse.className = "showEmailInUse";
+       const validateEmailInUse = document.querySelector(".emailInUseInvalid");
+       validateEmailInUse.style.display = "block";
+      //console.log(validateEmailInUse);
+
+      // validateEmailInUse.classList.remove(".emailInUse");
+      // validateEmailInUse.createElement("div");
+      // validateEmailInUse.className = "showEmailInUse";
      
      }
       //console.log(errorCode, errorMessage);
@@ -54,6 +65,13 @@ export const registerUser = (userName, email, password) => {
 
     });
     return createUserWithEmailAndPassword
+};
+const emailVerificationRegister = () => {
+  sendEmailVerification(auth.currentUser)
+  .then(() => {
+    // Email verification sent!
+    // ...
+  });
 };
 
 // login con google
