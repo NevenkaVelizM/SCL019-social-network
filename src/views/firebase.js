@@ -1,4 +1,5 @@
 /* eslint-disable no-alert */
+/* eslint-disable import/no-cycle */
 /* eslint-disable no-console */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-vars */
@@ -16,9 +17,7 @@ import {
 
 import { firebaseConfig } from "./config.js";
 
-// eslint-disable-next-line import/no-cycle
-import { validateEmailRequire, validateEmailInUse } from "./register.js";
-
+import { validateEmailRequire } from "./register.js";
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -42,7 +41,6 @@ export const registerUser = (userName, email, password) => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-
       if (errorCode === "auth/invalid-email") {
         validateEmailRequire.style.display = "block";
       }
