@@ -3,17 +3,15 @@
 // import { myFunction } from "./views/register.js";
 
 // myFunction();
-import { changeRouter } from "./router/router.js";
+import { changeView } from "./router/router.js";
 import { viewLogin } from "./views/login.js";
 
 // myFunction();
 
 const init = () => {
   document.getElementById("root").appendChild(viewLogin());
-  console.log("holaZuli");
   window.addEventListener("hashchange", () => {
-    console.log("HolaAna");
-    changeRouter(window.location.hash);
+    changeView(window.location.hash);
   });
 };
 window.addEventListener("load", init);

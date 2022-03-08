@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { loginWithGoogle } from "./firebase.js";
-//import { root } from "../main.js";
+// import { root } from "../main.js";
 
 export const viewLogin = () => {
   // aqui va el DOM de nuestra pagina de Login
@@ -8,7 +8,6 @@ export const viewLogin = () => {
 
   const loginContainer = document.createElement("div");
   loginContainer.className = "loginContainer";
- 
 
   // Creamos el contenedor de toda la seccion
   const infoContainer = document.createElement("div");
@@ -99,7 +98,6 @@ export const viewLogin = () => {
 
   link.addEventListener("click", () => {
     window.location.href = "#/register";
-    console.log("Hola");
   });
   return loginContainer;
 };

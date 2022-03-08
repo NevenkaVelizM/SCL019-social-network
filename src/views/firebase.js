@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-console */
 /* eslint-disable import/no-unresolved */
@@ -16,7 +17,7 @@ import {
 
 import { firebaseConfig } from "./config.js";
 
-import { validateEmailRequire, validateEmailInUse } from "./register.js";
+import { validateEmailRequire } from "./register.js";
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -35,7 +36,7 @@ export const registerUser = (userName, email, password) => {
       emailVerificationRegister();
       alert("Email verification sent!");
 
-      return (user);
+      return user;
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -64,11 +65,10 @@ export const registerUser = (userName, email, password) => {
   return createUserWithEmailAndPassword;
 };
 const emailVerificationRegister = () => {
-  sendEmailVerification(auth.currentUser)
-    .then(() => {
-      // Email verification sent!
-      // ...
-    });
+  sendEmailVerification(auth.currentUser).then(() => {
+    // Email verification sent!
+    // ...
+  });
 };
 
 // login con google

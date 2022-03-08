@@ -1,7 +1,8 @@
+/* eslint-disable func-names */
 // eslint-disable-next-line import/no-cycle
 import { registerUser } from "./firebase.js";
 // eslint-disable-next-line import/no-cycle
-//import { root } from "../main.js";
+// import { root } from "../main.js";
 
 // aqui exportaras las funciones que necesites
 
@@ -12,7 +13,7 @@ export const viewRegister = () => {
 
   const registerContainer = document.createElement("div");
   registerContainer.className = "registerContainer";
-  //root.appendChild(registerContainer);
+  // root.appendChild(registerContainer);
 
   // Creamos el contenedor de toda la seccion
   const infoContainer = document.createElement("div");
