@@ -1,13 +1,13 @@
-import { registerUser } from "./firebase.js"
+/* eslint-disable import/no-cycle */
+import { registerUser } from "./firebase.js";
 import { root } from "../main.js";
 
 // aqui exportaras las funciones que necesites
 
 export const viewRegister = () => {
-
-  //console.log("me ejecuto segundo");
+  // console.log("me ejecuto segundo");
   // aqui va el DOM de nuestra pagina de registro
-  //Creamos el padre de toda la seccion Register
+  // Creamos el padre de toda la seccion Register
 
   const registerContainer = document.createElement("div");
   registerContainer.className = "registerContainer";
@@ -58,9 +58,6 @@ export const viewRegister = () => {
   infoContainer.appendChild(userData);
   // console.log('Hola mundo!');
 
-
-  
-
   // Mostrar y ocultar contraseña
   const iconEye = userData.querySelector(".iconEye");
   const checkEye = userData.querySelector("#checkEye");
@@ -78,14 +75,10 @@ export const viewRegister = () => {
     }
   });
 
-
   const passwordRequired = document.getElementById("passwordLogin");
-   passwordRequired.onkeyup = function(){
-   document.getElementById("passwordRequiredText").style.display = "block";
-   };
-
-  
-
+  passwordRequired.onkeyup = function () {
+    document.getElementById("passwordRequiredText").style.display = "block";
+  };
 
   // boton de continuar
   // const buttonContinue = document.createElement("div");
@@ -98,10 +91,8 @@ export const viewRegister = () => {
 
   // prueba boton de registro
 
-
   const buttonContinue = document.getElementById("submit-register");
   buttonContinue.addEventListener("click", (e) => {
-
     e.preventDefault();
     const userName = document.getElementById("registerNameLogin").value;
     const email = document.getElementById("emailLogin").value;
@@ -110,7 +101,6 @@ export const viewRegister = () => {
     registerUser(userName, email, password);
 
     // console.log(registerUser);
-
   });
   // // console.log(buttonContinue)
   // SECCION FINAL DEL REGISTRO
@@ -119,9 +109,8 @@ export const viewRegister = () => {
   footerRegister.className = "footerRegister";
   infoContainer.appendChild(footerRegister);
 
-  
   const rabbit = document.createElement("img");
-  rabbit.className = "rabbit-img"
+  rabbit.className = "rabbit-img";
   rabbit.setAttribute("src", "./assets/white-rabbit.png");
   footerRegister.appendChild(rabbit);
   // botón de google - QUEDA COMENTADO HASTA REUBICARLO EN LOGIN.JS
@@ -159,8 +148,6 @@ export const viewRegister = () => {
   // return sectionReturn;
 };
 
-
-  export const validateEmailRequire = document.getElementById("emailRequired");
-  export const validateEmailInUse = document.querySelector(".emailInUseInvalid");
-  // console.log("me ejecuto primero");
-
+export const validateEmailRequire = document.getElementById("emailRequired");
+export const validateEmailInUse = document.querySelector(".emailInUseInvalid");
+// console.log("me ejecuto primero");
