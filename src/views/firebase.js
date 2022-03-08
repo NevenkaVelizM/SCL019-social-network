@@ -9,19 +9,22 @@ import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
+  sendEmailVerification,
   // signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
 import { firebaseConfig } from "./config.js";
+
+import {validateEmailRequire, validateEmailInUse} from "./register.js";
+
 
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
-// registro con email y constraseña
+// registro con email y contraseña (Registro de usuarios nuevos)
 export const registerUser = (userName, email, password) => {
-
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
@@ -30,19 +33,51 @@ export const registerUser = (userName, email, password) => {
       // console.log(user);
       // ...
 
+      emailVerificationRegister();
+      alert("Email verification sent!");
+      
+
+
+     return (user);
+
+
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
 
 
-      console.log(errorCode, errorMessage);
+     if (errorCode === "auth/invalid-email"){
+      validateEmailRequire.style.display = "block";
+     };
+
+     if (errorCode === "auth/email-already-in-use"){
+       const validateEmailInUse = document.querySelector(".emailInUseInvalid");
+       validateEmailInUse.style.display = "block";
+      //console.log(validateEmailInUse);
+
+      // validateEmailInUse.classList.remove(".emailInUse");
+      // validateEmailInUse.createElement("div");
+      // validateEmailInUse.className = "showEmailInUse";
+     
+     }
+      //console.log(errorCode, errorMessage);
+
       // ..
 
       // console.log(errorCode, errorMessage);
       // ..
-
     });
+
+    return createUserWithEmailAndPassword
+};
+const emailVerificationRegister = () => {
+  sendEmailVerification(auth.currentUser)
+  .then(() => {
+    // Email verification sent!
+    // ...
+  });
+
 };
 
 // login con google
@@ -86,4 +121,3 @@ export const activeUser = () => {
     }
   });
 };
-
