@@ -17,8 +17,6 @@ import { firebaseConfig } from "./config.js";
 
 import {validateEmailRequire, validateEmailInUse} from "./register.js";
 
-
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -32,36 +30,28 @@ export const registerUser = (userName, email, password) => {
       user.displayName = userName;
       // console.log(user);
       // ...
-
       emailVerificationRegister();
       alert("Email verification sent!");
-      
-
-
-     return (user);
-
-
+      return (user);
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
 
+      if (errorCode === "auth/invalid-email") {
+        validateEmailRequire.style.display = "block";
+      };
 
-     if (errorCode === "auth/invalid-email"){
-      validateEmailRequire.style.display = "block";
-     };
+      if (errorCode === "auth/email-already-in-use") {
+        const validateEmailInUse = document.querySelector(".emailInUseInvalid");
+        validateEmailInUse.style.display = "block";
+        // console.log(validateEmailInUse);
 
-     if (errorCode === "auth/email-already-in-use"){
-       const validateEmailInUse = document.querySelector(".emailInUseInvalid");
-       validateEmailInUse.style.display = "block";
-      //console.log(validateEmailInUse);
-
-      // validateEmailInUse.classList.remove(".emailInUse");
-      // validateEmailInUse.createElement("div");
-      // validateEmailInUse.className = "showEmailInUse";
-     
-     }
-      //console.log(errorCode, errorMessage);
+        // validateEmailInUse.classList.remove(".emailInUse");
+        // validateEmailInUse.createElement("div");
+        // validateEmailInUse.className = "showEmailInUse";
+      }
+      // console.log(errorCode, errorMessage);
 
       // ..
 
@@ -69,15 +59,14 @@ export const registerUser = (userName, email, password) => {
       // ..
     });
 
-    return createUserWithEmailAndPassword
+  return createUserWithEmailAndPassword;
 };
 const emailVerificationRegister = () => {
   sendEmailVerification(auth.currentUser)
-  .then(() => {
+    .then(() => {
     // Email verification sent!
     // ...
-  });
-
+    });
 };
 
 // login con google
