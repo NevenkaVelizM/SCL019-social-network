@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable no-console */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-vars */
@@ -15,8 +16,7 @@ import {
 
 import { firebaseConfig } from "./config.js";
 
-import {validateEmailRequire, validateEmailInUse} from "./register.js";
-
+import { validateEmailRequire, validateEmailInUse } from "./register.js";
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -37,10 +37,9 @@ export const registerUser = (userName, email, password) => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-
       if (errorCode === "auth/invalid-email") {
         validateEmailRequire.style.display = "block";
-      };
+      }
 
       if (errorCode === "auth/email-already-in-use") {
         const validateEmailInUse = document.querySelector(".emailInUseInvalid");
@@ -64,8 +63,8 @@ export const registerUser = (userName, email, password) => {
 const emailVerificationRegister = () => {
   sendEmailVerification(auth.currentUser)
     .then(() => {
-    // Email verification sent!
-    // ...
+      // Email verification sent!
+      // ...
     });
 };
 

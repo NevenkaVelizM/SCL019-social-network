@@ -1,5 +1,6 @@
+/* eslint-disable import/no-cycle */
 import { loginWithGoogle } from "./firebase.js";
-import { root } from "../main.js";
+// import { root } from "../main.js";
 
 export const viewLogin = () => {
   // aqui va el DOM de nuestra pagina de Login
@@ -7,7 +8,6 @@ export const viewLogin = () => {
 
   const loginContainer = document.createElement("div");
   loginContainer.className = "loginContainer";
-  root.appendChild(loginContainer);
 
   // Creamos el contenedor de toda la seccion
   const infoContainer = document.createElement("div");
@@ -77,12 +77,10 @@ export const viewLogin = () => {
   `;
   footerRegister.appendChild(buttonGoogle);
   buttonGoogle.addEventListener("click", loginWithGoogle);
-
   const rabbit = document.createElement("img");
-  rabbit.className = "rabbit-img"
+  rabbit.className = "rabbit-img";
   rabbit.setAttribute("src", "./assets/white-rabbit.png");
   footerRegister.appendChild(rabbit);
-
   // Seccion link to Register
   const sectionReturn = document.createElement("div");
   sectionReturn.className = "sectionReturn";
@@ -93,13 +91,14 @@ export const viewLogin = () => {
   returnLogin.textContent = "If you don’t have an account ";
   sectionReturn.appendChild(returnLogin);
 
-  const link = document.createElement("a");
+  const link = document.createElement("button");
   link.className = "linkReturnLogin";
   link.textContent = "Register Here";
   sectionReturn.appendChild(link);
 
   link.addEventListener("click", () => {
-    link.href = "#/register";
+    window.location.href = "#/register";
+    // console.log("Hola");
   });
-  return sectionReturn;
+  return loginContainer;
 };
