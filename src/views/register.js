@@ -75,6 +75,7 @@ export const viewRegister = () => {
 
   //  const passwordRequired = document.querySelector(".passwordLogin");
   //  console.log(passwordRequired);
+  // eslint-disable-next-line func-names
   passwordLogin.onkeyup = function () {
     document.getElementById("passwordRequiredText").style.display = "block";
   };

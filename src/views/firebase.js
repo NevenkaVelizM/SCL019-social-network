@@ -16,7 +16,7 @@ import {
 
 import { firebaseConfig } from "./config.js";
 
-import { validateEmailRequire, validateEmailInUse } from "./register.js";
+import { validateEmailRequire } from "./register.js";
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -30,7 +30,9 @@ export const registerUser = (userName, email, password) => {
       user.displayName = userName;
       // console.log(user);
       // ...
+      // eslint-disable-next-line no-use-before-define
       emailVerificationRegister();
+      // eslint-disable-next-line no-alert
       alert("Email verification sent!");
       return (user);
     })
