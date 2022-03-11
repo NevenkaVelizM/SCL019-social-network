@@ -10,9 +10,8 @@ import { viewLogin } from "./views/login.js";
 
 const init = () => {
   document.getElementById("root").appendChild(viewLogin());
-  console.log("holaZuli");
   window.addEventListener("hashchange", () => {
-    console.log("HolaAna");
+    // console.log("HolaAna");
     changeView(window.location.hash);
   });
 };
