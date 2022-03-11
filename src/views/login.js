@@ -15,17 +15,23 @@ export const viewLogin = () => {
 
   // Ubicacion del Logo en la pagina
 
-  const loginLogoApp = document.createElement("div");
+  const loginLogoApp = document.createElement("img");
   loginLogoApp.className = "loginLogoApp";
-  loginLogoApp.textContent = "</>";
+  loginLogoApp.setAttribute("src", "./assets/Logo_codeZan.png");
   loginInfoContainer.appendChild(loginLogoApp);
-
   // Ubicacion del texto LOGIN
   const loginLoginText = document.createElement("div");
   loginLoginText.className = "loginLoginText";
-  loginLoginText.textContent = "LOGIN";
+  // loginLoginText.textContent = "LOGIN";
 
+  const welcomeText = document.createElement("div");
+  welcomeText.className = "welcomeText";
+  welcomeText.innerHTML = ` 
+  <p> Hi, User.<br> Welcome to our new socialNetwork.<br><br> Join us && share: <br> -Ideas<br> -Exp <br> -PC builds & more. <br><br> 
+  Come.. Follow the white rabbit.. <p/>
+  `;
   loginInfoContainer.appendChild(loginLoginText);
+  loginLoginText.appendChild(welcomeText);
 
   // Creacion de los campos de texto
 
@@ -89,6 +95,14 @@ export const viewLogin = () => {
   loginUserData.appendChild(buttonGoogle);
   buttonGoogle.addEventListener("click", loginWithGoogle);
 
+  // Boton de Register
+
+  const btnRegister = document.createElement("div");
+  btnRegister.className = "btnRegister";
+  btnRegister.innerHTML = `
+  <input type="button" id="btnRegister" class="login-btnRegister" value=" REGISTER">
+  `;
+  loginUserData.appendChild(btnRegister);
   // Creacion LoginFooter
 
   const loginFooter = document.createElement("div");
@@ -107,17 +121,17 @@ export const viewLogin = () => {
 
   const returnRegister = document.createElement("div");
   returnRegister.className = "returnRegister";
-  returnRegister.textContent = "If you don’t have an account ";
+  returnRegister.textContent = "Nevenka Veliz  Anabella Lincopan  Zulibeth Torres";
   sectionReturn.appendChild(returnRegister);
 
-  const link = document.createElement("a");
-  link.className = "linkReturnRegister";
-  link.textContent = "Register Here";
-  sectionReturn.appendChild(link);
+  // const link = document.createElement("a");
+  // link.className = "linkReturnRegister";
+  // link.textContent = "Register Here";
+  // sectionReturn.appendChild(link);
 
-  link.addEventListener("click", () => {
-    window.location.href = "#/register";
-    console.log("Hola");
-  });
+  // link.addEventListener("click", () => {
+  //   window.location.href = "#/register";
+  //   console.log("Hola");
+  // });
   return loginContainer;
 };
