@@ -144,8 +144,8 @@ export const viewLogin = () => {
   // sectionReturn.appendChild(link);
 
   // link.addEventListener("click", () => {
-  //   window.location.href = "#/register";
-  //   console.log("Hola");
+  //   window.location.hash = "#/register";
+  //   // console.log("Hola");
   // });
   return loginContainer;
 };

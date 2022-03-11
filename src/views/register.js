@@ -165,7 +165,7 @@ export const viewRegister = () => {
   link.textContent = "Sign In";
 
   link.addEventListener("click", () => {
-    link.href = "#";
+    window.location.hash = "#";
   });
 
   sectionReturn.appendChild(returnLogin);
