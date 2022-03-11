@@ -1,5 +1,7 @@
+/* eslint-disable import/no-duplicates */
 /* eslint-disable import/no-cycle */
 import { loginWithGoogle } from "./firebase.js";
+import { loginUser } from "./firebase.js";
 // import { root } from "../main.js";
 
 export const viewLogin = () => {
@@ -35,9 +37,13 @@ export const viewLogin = () => {
     <form id="loginFormLogin" class="loginFormLogin">
     <div class="loginUser"> User </div>
     <input type="text" id="loginEmailUser" class="loginEmailUser" placeholder= "name || nickName || email" autocomplete= "off" size ="25" required />
+    <span class="displayNone"><p id="emailLoginEnter" class="emailLoginEnter"> Enter a valid e-mail </p></span>
+    <span class="displayNone"><p id="userNotFound" class="userNotFound"> User not found </p></span>
     <div class="loginPassword"> Password </div>
     <span class="iconEye"><i id="checkEye" class="fas fa-eye-slash"></i></span>
     <input type="password" id="loginPasswordInput" class="loginPasswordInput" placeholder= "Enter password" size ="25" required/>
+    <span class="displayNone"><p id="wrongPassword" class="wrongPassword"> Wrong password </p></span>
+    <span class="displayNone"><p id="enterPasswordPassword" class="enterPassword"> Enter password </p></span>
     </form>
     </div>
     `;
@@ -70,14 +76,22 @@ export const viewLogin = () => {
    <input type="button" id="buttonContinue" class="login-btnContinue" value="Continue">
    `;
   loginUserData.appendChild(btnContinue);
-  // btnContinue.addEventListener("click", () => {
-  //   //  e.preventDefault();
-  //   const loginUserName = document.getElementById("registerNameLogin").value;
-  //   const email = document.getElementById("emailLogin").value;
-  //   const password = document.getElementById("loginPasswordInput").value;
-  //   registerUser(userName, email, password);
-  //   // // // console.log(registerUser);
-  // });
+  btnContinue.addEventListener("click", () => {
+    const email = document.getElementById("loginEmailUser").value;
+    if (email === "") {
+      document.querySelector(".emailLoginEnter").style.display = "block";
+    } else {
+      document.querySelector(".emailLoginEnter").style.display = "none";
+    }
+    const password = document.getElementById("loginPasswordInput").value;
+    if (password === "") {
+      document.querySelector(".enterPassword").style.display = "block";
+    } else {
+      document.querySelector(".enterPassword").style.display = "none";
+    }
+    loginUser(email, password);
+    // // // console.log(registerUser);
+  });
 
   // Botón de google
 

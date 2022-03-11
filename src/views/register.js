@@ -39,16 +39,18 @@ export const viewRegister = () => {
   <form id="formLogin" class="FormLogin">
   <div class="name"> Name </div>
   <input type="text" id="registerNameLogin" class="registerNameLogin" placeholder= "Enter your name" autocomplete= "off" size ="25"/>
+  <span class="displayNone"><p id="nameEnter" class="enterName"> Enter name </p></span>
   <div class="nickName"> Nickname </div>
   <input type="text" id="nickNameLogin" class="nickNameLogin" placeholder= "Enter your nickname" autocomplete= "off" size ="25"/>
   <div class="email"> E-mail </div>
   <input type="email" id="emailLogin" class="emailLogin" placeholder= "Enter e-mail" autocomplete= "off" size ="25" required/>
-  <span class="displayNone"><p id="emailRequired"> Error: invalid-email </p></span>
+  <span class="displayNone"><p id="emailRequired" class="emailRequired"> Enter a valid e-mail </p></span>
   <span class="displayNone"><p id="emailInUse" class="emailInUseInvalid"> Error: email-already in use </p></span>
   <div class="password"> Password </div>
   <span class="iconEye"><i id="checkEye" class="fas fa-eye-slash"></i></span>
   <input type="password" id="passwordLogin" class="passwordLogin" placeholder= "Enter password" minlength="6" maxlength="8" size ="25"/>
-  <span class="displayNone"><p id="passwordRequiredText">  *Minimum 6 characters </p></span>
+  <span class="displayNone"><p id="passwordRequiredText"> *Minimum 6 characters </p></span>
+  <span class="displayNone"><p id="passwordNoneText" class="nonePassword"> Enter password </p></span>
   </form>
   </div>
   `;
@@ -89,8 +91,35 @@ export const viewRegister = () => {
   buttonContinue.addEventListener("click", () => {
     //  e.preventDefault();
     const userName = document.getElementById("registerNameLogin").value;
+    if (userName === "") {
+      document.querySelector(".enterName").style.display = "block";
+    } else {
+      document.querySelector(".enterName").style.display = "none";
+    }
+
     const email = document.getElementById("emailLogin").value;
+    // const validEmail = () => {
+    //   // expresión regular que simula el patron de búsqueda del correo electrónico
+    //   const regEx = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/;
+    //   return regEx.test(email);
+    // };
+    // if (email === "" || !validEmail(email)) {
+    //   document.querySelector(".emailRequired").style.display = "block";
+    // } else {
+    //   document.querySelector(".emailRequired").style.display = "none";
+    // }
+    if (email === "") {
+      document.querySelector(".emailRequired").style.display = "block";
+    } else {
+      document.querySelector(".emailRequired").style.display = "none";
+    }
+
     const password = document.getElementById("passwordLogin").value;
+    if (password === "") {
+      document.querySelector(".nonePassword").style.display = "block";
+    } else {
+      document.querySelector(".nonePassword").style.display = "none";
+    }
     registerUser(userName, email, password);
     // // // console.log(registerUser);
   });
@@ -144,6 +173,6 @@ export const viewRegister = () => {
   return registerContainer;
 };
 
-export const validateEmailRequire = document.getElementById("emailRequired");
+export const validateEmailRequire = document.querySelector(".emailRequired");
 export const validateEmailInUse = document.querySelector(".emailInUseInvalid");
 // console.log("me ejecuto primero");
