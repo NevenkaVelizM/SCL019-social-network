@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-console */
 /* eslint-disable import/no-unresolved */
@@ -11,12 +12,11 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   sendEmailVerification,
-  // signInWithEmailAndPassword
+  signInWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
 import { firebaseConfig } from "./config.js";
-
-import { validateEmailRequire, validateEmailInUse } from "./register.js";
+// import { validateEmailRequire } from "./register.js";
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -31,26 +31,24 @@ export const registerUser = (userName, email, password) => {
       // console.log(user);
       // ...
 
+      // eslint-disable-next-line no-use-before-define
       emailVerificationRegister();
       alert("Email verification sent!");
 
-      return (user);
+      return user;
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      const validateEmailRequire = document.querySelector(".emailRequired");
+      const validateEmailInUse = document.querySelector(".emailInUseInvalid");
       if (errorCode === "auth/invalid-email") {
         validateEmailRequire.style.display = "block";
       }
-
       if (errorCode === "auth/email-already-in-use") {
-        const validateEmailInUse = document.querySelector(".emailInUseInvalid");
         validateEmailInUse.style.display = "block";
-        // console.log(validateEmailInUse);
-
-        // validateEmailInUse.classList.remove(".emailInUse");
-        // validateEmailInUse.createElement("div");
-        // validateEmailInUse.className = "showEmailInUse";
+      } else {
+        validateEmailInUse.style.display = "none";
       }
       // console.log(errorCode, errorMessage);
 
@@ -63,11 +61,10 @@ export const registerUser = (userName, email, password) => {
   return createUserWithEmailAndPassword;
 };
 const emailVerificationRegister = () => {
-  sendEmailVerification(auth.currentUser)
-    .then(() => {
-      // Email verification sent!
-      // ...
-    });
+  sendEmailVerification(auth.currentUser).then(() => {
+    // Email verification sent!
+    // ...
+  });
 };
 
 // login con google
@@ -83,7 +80,8 @@ export const loginWithGoogle = () => {
       const user = result.user;
 
       // ...
-    }).catch((error) => {
+    })
+    .catch((error) => {
       // Handle Errors here.
 
       const errorCode = error.code;
@@ -110,4 +108,33 @@ export const activeUser = () => {
       // ...
     }
   });
+};
+
+export const loginUser = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const loginValidateEmail = document.querySelector(".emailLoginEnter");
+      const loginUserNotFound = document.querySelector(".userNotFound");
+      const loginWrongPassword = document.querySelector(".wrongPassword");
+      if (errorCode === "auth/invalid-email") {
+        loginValidateEmail.style.display = "block";
+      }
+      if (errorCode === "auth/user-not-found") {
+        loginUserNotFound.style.display = "block";
+      } else {
+        loginUserNotFound.style.display = "none";
+      }
+      if (errorCode === "auth/wrong-password") {
+        loginWrongPassword.style.display = "block";
+      } else {
+        loginWrongPassword.style.display = "none";
+      }
+    });
 };

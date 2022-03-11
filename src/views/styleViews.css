@@ -5,24 +5,25 @@ body{
     
     /* width: 100%;
     height: 100%; */
-    font-family: 'Fira Code', monospace;
-    }
-#root{
-    display: flex;
-    /* width:100%;
-    height: 100%; */
-    /* padding: 10px;  */
-    /* margin:10px; */
-    /* margin-right: 30px; */
+  font-family: "Fira Code", monospace;
 }
-.infoContainer, .loginInfoContainer{
-    display: flex;
-    /* justify-content: center;  */
-    flex-direction: column;
-    margin: 0;
-    padding: 10px;
-    width: 100%;
-    height: 100%;
+#root {
+  display: flex;
+  /* width:100%;
+    height: 100%; */
+  /* padding: 10px;  */
+  /* margin:10px; */
+  /* margin-right: 30px; */
+}
+.infoContainer,
+.loginInfoContainer {
+  display: flex;
+  /* justify-content: center;  */
+  flex-direction: column;
+  margin: 0;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
 }
 
  .logoApp /*.loginLogoApp*/{
@@ -44,80 +45,111 @@ body{
     padding-left: 30px;
     margin-top: 30px;
 }
-.userData, .loginUserData{
-    display:flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 40px;
-    margin-left: 21px;
+.userData,
+.loginUserData {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+  margin-left: 21px;
 }
-.FormLogin, .loginFormLogin{
-    margin-left: 10px;
+.FormLogin,
+.loginFormLogin {
+  margin-left: 10px;
 }
-.name, .nickName, .email, .password{
-    font-size: 1.3em;
-    margin: 12px; 
-    color: white;
+.name,
+.nickName,
+.email,
+.password {
+  font-size: 1.3em;
+  margin: 12px;
+  color: white;
 }
-.registerNameLogin, .nickNameLogin, .emailLogin, .passwordLogin{
-    font-family:'Fira Code', monospace;
-    display: flex;
-    font-size: 1em;
-    padding: 5px;
-    border: 2px solid;
-    border-radius: 7px;
-    border-color: #03A014;
-    background-color: #6B6A6A;
-    outline:none;
-    margin: 7px;  
-   
+.registerNameLogin,
+.nickNameLogin,
+.emailLogin,
+.passwordLogin {
+  font-family: "Fira Code", monospace;
+  display: flex;
+  font-size: 1em;
+  padding: 5px;
+  border: 2px solid;
+  border-radius: 7px;
+  border-color: #03a014;
+  background-color: #6b6a6a;
+  outline: none;
+  margin: 7px;
+}
+.registerNameLogin::placeholder {
+  color: #9b9898;
+  font-style: italic;
+}
+.nickNameLogin::placeholder {
+  color: #9b9898;
+  font-style: italic;
+}
+.emailLogin::placeholder {
+  color: #9b9898;
+  font-style: italic;
+}
+.passwordLogin::placeholder {
+  color: #9b9898;
+  font-style: italic;
+}
 
+#nameEnter {
+  display: none;
+  color: rgb(104, 5, 5);
+  font-size: 13px;
+  font-style: italic;
+  margin-left: 16px;
+  margin-top: -3px;
 }
-.registerNameLogin::placeholder{
-    color:#9b9898;
-    font-style: italic;
-    
+#passwordRequiredText {
+  display: none;
+  color: rgb(104, 5, 5);
+  font-size: 13px;
+  font-style: italic;
+  margin-left: 16px;
+  margin-top: -3px;
 }
-.nickNameLogin::placeholder{
-    color:#9b9898;
-    font-style: italic;
+
+#passwordNoneText {
+  display: none;
+  color: rgb(104, 5, 5);
+  font-size: 13px;
+  font-style: italic;
+  margin-left: 16px;
+  margin-top: -3px;
 }
-.emailLogin::placeholder{
-    color:#9b9898;
-    font-style: italic;
+
+#emailRequired {
+  display: none;
+  color: rgb(104, 5, 5);
+  font-size: 13px;
+  font-style: italic;
+  margin-left: 16px;
+  margin-top: -3px;
 }
-.passwordLogin::placeholder{
-    color:#9b9898;
-    font-style: italic;
+.emailInUseInvalid, .emailLoginEnter, .userNotFound, .wrongPassword, .enterPassword {
+  display: none;
+  /* color: red; */
+  color: rgb(104, 5, 5);
+  font-size: 13px;
+  font-style: italic;
+  margin-left: 16px;
+  margin-top: -3px;
 }
-#passwordRequiredText{
-    display: none;
-    color: rgb(104, 5, 5);
-    font-size: 13px;
-    font-style: italic;
-    margin-left: 16px;
-    margin-top: -3px;
-}
-#emailRequired{
-    display: none;
-    color: red;
-    font-style: italic;
-}
-.emailInUseInvalid{
-    display: none;
-    color: red;
-    font-style: italic;
-}
-.showEmailInUse{
-    display: block;
-    color: red;
-    font-style: italic;
+.showEmailInUse {
+  display: block;
+  color: red;
+  font-style: italic;
 }
 
 /* input:required:focus {
     /* border: 1px dashed red; */
-    /* box-shadow: 0  0 3px rgba(255,0,0,0.5);
-  } */ 
+/* box-shadow: 0  0 3px rgba(255,0,0,0.5);
+  } */
 
 .buttonContinue, .login-btnContinue, .login-btnRegister{
     display: flex;
@@ -136,82 +168,82 @@ body{
     cursor: pointer;
 }
 
+.buttonContinue:hover,
+.login-btnContinue:hover {
+  background-color: #020331;
+  padding-left: 24px;
+  padding-right: 8px;
+  transition: 0.5s;
+}
 
-.buttonContinue:hover, .login-btnContinue:hover{
-    background-color: #020331;
-    padding-left: 24px;
-    padding-right:8px;
-    transition: 0.5s;
-    
-  } 
-
-.footerRegister, .loginFooter{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: 15px;
-    margin-left: 28px;
-    /* width: 270px;
+.footerRegister,
+.loginFooter {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 15px;
+  margin-left: 28px;
+  /* width: 270px;
     height: 100px; */
-    
-}
- 
- .buttonGoogle{
-    display: flex; 
-    justify-content: center;
-    align-items: center; 
-    margin-top: 20px;  
-    width: 260px;
-    height: 40px; 
-    /* margin-left: 30px;    */
-    color: white;
-    font-size: 1.10em ;
-    font-family:'Fira Code', monospace;
-    background-color: #918d8d;
-    border-radius: 4px;
-    box-shadow: 2px 5px 4px 0px #00000040;
 }
 
-.buttonGoogle:hover{
-    background-color: #850000;
-    padding-right: 24px;
-    padding-left:8px;
-    transition: 0.5s;
-    
-  }  
+.buttonGoogle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 260px;
+  height: 40px;
+  /* margin-left: 30px;    */
+  color: white;
+  font-size: 1.1em;
+  font-family: "Fira Code", monospace;
+  background-color: #918d8d;
+  border-radius: 4px;
+  box-shadow: 2px 5px 4px 0px #00000040;
+}
 
-  .iconEye{
-    color: white;
-    position: absolute;
-    padding: 9px;
-    left: 315px;
-    cursor: pointer;
-  } 
+.buttonGoogle:hover {
+  background-color: #850000;
+  padding-right: 24px;
+  padding-left: 8px;
+  transition: 0.5s;
+}
 
-  .sectionReturn{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 50px; 
-      /* margin-left: 6px;; */
-  }
-  .returnLogin, .returnRegister{
-      display:flex;
-      justify-content: center;
-      font-size: 0.70em;
-      color:#9b9898;
-  }
-  .linkReturnLogin, .linkReturnRegister{ 
-    display:flex;
-    justify-content: center;
-    font-size: 0.80em;
-    color:#2609ca;
-    cursor:pointer;
-  }
-  .rabbit-img, .loginRabbit-img{
-      display: none;
+.iconEye {
+  color: white;
+  position: absolute;
+  padding: 9px;
+  left: 315px;
+  cursor: pointer;
+}
 
-  }
+.sectionReturn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  /* margin-left: 6px;; */
+}
+.returnLogin,
+.returnRegister {
+  display: flex;
+  justify-content: center;
+  font-size: 0.7em;
+  color: #9b9898;
+}
+.linkReturnLogin,
+.linkReturnRegister {
+  display: flex;
+  justify-content: center;
+  font-size: 0.8em;
+  color: #2609ca;
+  cursor: pointer;
+}
+.rabbit-img,
+.loginRabbit-img {
+  display: none;
+}
 /*Login View */
 
 .loginLogoApp{
@@ -243,3 +275,4 @@ body{
     outline:none;
     margin: 7px;  
 }
+
