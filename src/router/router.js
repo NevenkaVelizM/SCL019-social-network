@@ -5,17 +5,10 @@ import { viewLogin } from "../views/login.js";
 
 export const changeView = (hash) => {
   const container = document.getElementById("root");
-  // container.innerHTML = "";
-  switch (hash) {
-    case "":
-    case "#":
-    case "#/":
-      container.innerHTML = "";
-      container.appendChild(viewLogin());
-      break;
-    case "#/register":
-      container.innerHTML = "";
-      container.appendChild(viewRegister());
-      break;
+  container.innerHTML = "";
+  if (hash === "" || hash === "#" || hash === "#/") {
+    container.appendChild(viewLogin());
+  } else if (hash === "#/register") {
+    container.appendChild(viewRegister());
   }
 };
