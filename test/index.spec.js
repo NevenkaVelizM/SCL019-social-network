@@ -1,10 +1,9 @@
-//  importamos la funcion que vamos a testear
+// importamos la funcion que vamos a testear
+import { changeView } from "../src/router/router.js";
 
-// eslint-disable-next-line import/named
-import { myFunction } from "../src/views/register";
 
-describe("myFunction", () => {
+describe("changeView", () => {
   it("debería ser una función", () => {
-    expect(typeof myFunction).toBe("function");
+    expect(typeof changeView).toBe("function");
   });
 });
