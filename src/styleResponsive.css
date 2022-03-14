@@ -14,7 +14,7 @@
     height: 500px;
     left: 250px;
     top: 110px;
-    background-color: #6B6A6A;
+    background-color: #4b4a4a;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,20 +59,29 @@
  .infoContainer, .loginInfoContainer{
     position: relative;
   }
+
+  .headerLogin{
+   display: flex;
+   /* justify-content: space-around; */
+  align-items: center;
+  flex-direction: row;
+  margin-top: 60px;
+  margin-left: 60px;
+ }
         
  .logoApp, .loginLogoApp{
     font-size: 20px;
-    position: absolute;
-    width: 44px;
+    /* position: absolute; */
+    /* width: 44px;
     height: 29px;
-    left: 120px;
-    top: 34px;
+    left: 120px; */
+    /* top: 34px;  */
     }
  .registerText{
     font-size: 25px;
-    position: absolute;
-    left: 148px;
-    top: 13px;
+    /* position: absolute; */
+    /* left: 148px; */
+    /* top: 13px;  */
     }
  .userData{
     position: absolute; 

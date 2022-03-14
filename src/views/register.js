@@ -17,19 +17,25 @@ export const viewRegister = () => {
   infoContainer.className = "infoContainer";
   registerContainer.appendChild(infoContainer);
 
-  // Ubicacion del Logo en la pagina
+  // Ubicacion de elementos del header
+
+  const headerLogin = document.createElement("div");
+  headerLogin.className = "headerLogin";
+  infoContainer.appendChild(headerLogin);
+
+  // Creacion de elementos del header
 
   const logoApp = document.createElement("div");
   logoApp.className = "logoApp";
   logoApp.textContent = "</>";
-  infoContainer.appendChild(logoApp);
+  headerLogin.appendChild(logoApp);
 
   // Ubicacion del texto REGISTER
   const registerText = document.createElement("div");
   registerText.className = "registerText";
   registerText.textContent = "REGISTER";
 
-  infoContainer.appendChild(registerText);
+  headerLogin.appendChild(registerText);
 
   // Creacion de los campos de texto
 
