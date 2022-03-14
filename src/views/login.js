@@ -1,5 +1,6 @@
 /* eslint-disable import/no-duplicates */
 /* eslint-disable import/no-cycle */
+// eslint-disable-next-line import/no-duplicates
 import { loginWithGoogle } from "./firebase.js";
 import { loginUser } from "./firebase.js";
 // import { root } from "../main.js";
@@ -117,6 +118,13 @@ export const viewLogin = () => {
   <input type="button" id="btnRegister" class="login-btnRegister" value=" REGISTER">
   `;
   loginUserData.appendChild(btnRegister);
+
+
+  btnRegister.addEventListener("click", () => {
+    window.location.hash = "#/register";
+  });
+
+
   // Creacion LoginFooter
 
   const loginFooter = document.createElement("div");
@@ -147,5 +155,6 @@ export const viewLogin = () => {
   //   window.location.hash = "#/register";
   //   // console.log("Hola");
   // });
+
   return loginContainer;
 };
