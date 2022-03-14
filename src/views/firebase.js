@@ -9,7 +9,9 @@ import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithPopup,
+  signOut,
   GoogleAuthProvider,
+  signInWithEmailAndPassword,
   sendEmailVerification,
   // signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
@@ -39,18 +41,16 @@ export const registerUser = (userName, email, password) => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      const validateEmailRequire = document.querySelector(".emailRequired");
+      const validateEmailInUse = document.querySelector(".emailInUseInvalid");
       if (errorCode === "auth/invalid-email") {
         validateEmailRequire.style.display = "block";
       }
 
       if (errorCode === "auth/email-already-in-use") {
-        const validateEmailInUse = document.querySelector(".emailInUseInvalid");
         validateEmailInUse.style.display = "block";
-        // console.log(validateEmailInUse);
-
-        // validateEmailInUse.classList.remove(".emailInUse");
-        // validateEmailInUse.createElement("div");
-        // validateEmailInUse.className = "showEmailInUse";
+      } else {
+        validateEmailInUse.style.display = "none";
       }
       // console.log(errorCode, errorMessage);
 
@@ -109,5 +109,44 @@ export const activeUser = () => {
       // User is signed out
       // ...
     }
+  });
+};
+
+export const loginUser = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      window.location.hash = "#/wall";
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const loginValidateEmail = document.querySelector(".emailLoginEnter");
+      const loginUserNotFound = document.querySelector(".userNotFound");
+      const loginWrongPassword = document.querySelector(".wrongPassword");
+      if (errorCode === "auth/invalid-email") {
+        loginValidateEmail.style.display = "block";
+      }
+      if (errorCode === "auth/user-not-found") {
+        loginUserNotFound.style.display = "block";
+      } else {
+        loginUserNotFound.style.display = "none";
+      }
+      if (errorCode === "auth/wrong-password") {
+        loginWrongPassword.style.display = "block";
+      } else {
+        loginWrongPassword.style.display = "none";
+      }
+    });
+};
+
+export const logOut = () => {
+  signOut(auth).then(() => {
+    window.location.hash = "#/";
+  // Sign-out successful.
+  }).catch((error) => {
+  // An error happened.
   });
 };

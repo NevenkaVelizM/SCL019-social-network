@@ -1,5 +1,7 @@
 /* eslint-disable import/no-cycle */
+// eslint-disable-next-line import/no-duplicates
 import { loginWithGoogle } from "./firebase.js";
+import { loginUser } from "./firebase.js";
 // import { root } from "../main.js";
 
 export const viewLogin = () => {
@@ -15,17 +17,23 @@ export const viewLogin = () => {
 
   // Ubicacion del Logo en la pagina
 
-  const loginLogoApp = document.createElement("div");
+  const loginLogoApp = document.createElement("img");
   loginLogoApp.className = "loginLogoApp";
-  loginLogoApp.textContent = "</>";
+  loginLogoApp.setAttribute("src", "./assets/Logo_codeZan.png");
   loginInfoContainer.appendChild(loginLogoApp);
-
   // Ubicacion del texto LOGIN
   const loginLoginText = document.createElement("div");
   loginLoginText.className = "loginLoginText";
-  loginLoginText.textContent = "LOGIN";
+  // loginLoginText.textContent = "LOGIN";
 
+  const welcomeText = document.createElement("div");
+  welcomeText.className = "welcomeText";
+  welcomeText.innerHTML = ` 
+  <p> Hi, User.<br> Welcome to our new socialNetwork.<br><br> Join us && share: <br> -Ideas<br> -Exp <br> -PC builds & more. <br><br> 
+  Come.. Follow the white rabbit.. <p/>
+  `;
   loginInfoContainer.appendChild(loginLoginText);
+  loginLoginText.appendChild(welcomeText);
 
   // Creacion de los campos de texto
 
@@ -35,9 +43,13 @@ export const viewLogin = () => {
     <form id="loginFormLogin" class="loginFormLogin">
     <div class="loginUser"> User </div>
     <input type="text" id="loginEmailUser" class="loginEmailUser" placeholder= "name || nickName || email" autocomplete= "off" size ="25" required />
+    <span class="displayNone"><p id="emailLoginEnter" class="emailLoginEnter"> Enter a valid e-mail </p></span>
+    <span class="displayNone"><p id="userNotFound" class="userNotFound"> User not found </p></span>
     <div class="loginPassword"> Password </div>
     <span class="iconEye"><i id="checkEye" class="fas fa-eye-slash"></i></span>
     <input type="password" id="loginPasswordInput" class="loginPasswordInput" placeholder= "Enter password" size ="25" required/>
+    <span class="displayNone"><p id="wrongPassword" class="wrongPassword"> Wrong password </p></span>
+    <span class="displayNone"><p id="enterPasswordPassword" class="enterPassword"> Enter password </p></span>
     </form>
     </div>
     `;
@@ -70,14 +82,22 @@ export const viewLogin = () => {
    <input type="button" id="buttonContinue" class="login-btnContinue" value="Continue">
    `;
   loginUserData.appendChild(btnContinue);
-  // btnContinue.addEventListener("click", () => {
-  //   //  e.preventDefault();
-  //   const loginUserName = document.getElementById("registerNameLogin").value;
-  //   const email = document.getElementById("emailLogin").value;
-  //   const password = document.getElementById("loginPasswordInput").value;
-  //   registerUser(userName, email, password);
-  //   // // // console.log(registerUser);
-  // });
+  btnContinue.addEventListener("click", () => {
+    const email = document.getElementById("loginEmailUser").value;
+    if (email === "") {
+      document.querySelector(".emailLoginEnter").style.display = "block";
+    } else {
+      document.querySelector(".emailLoginEnter").style.display = "none";
+    }
+    const password = document.getElementById("loginPasswordInput").value;
+    if (password === "") {
+      document.querySelector(".enterPassword").style.display = "block";
+    } else {
+      document.querySelector(".enterPassword").style.display = "none";
+    }
+    loginUser(email, password);
+    // // // console.log(registerUser);
+  });
 
   // Botón de google
 
@@ -88,6 +108,19 @@ export const viewLogin = () => {
   `;
   loginUserData.appendChild(buttonGoogle);
   buttonGoogle.addEventListener("click", loginWithGoogle);
+
+  // Boton de Register
+
+  const btnRegister = document.createElement("div");
+  btnRegister.className = "btnRegister";
+  btnRegister.innerHTML = `
+  <input type="button" id="btnRegister" class="login-btnRegister" value=" REGISTER">
+  `;
+  loginUserData.appendChild(btnRegister);
+
+  btnRegister.addEventListener("click", () => {
+    window.location.hash = "#/register";
+  });
 
   // Creacion LoginFooter
 
@@ -107,17 +140,18 @@ export const viewLogin = () => {
 
   const returnRegister = document.createElement("div");
   returnRegister.className = "returnRegister";
-  returnRegister.textContent = "If you don’t have an account ";
+  returnRegister.textContent = "Nevenka Veliz  Anabella Lincopan  Zulibeth Torres";
   sectionReturn.appendChild(returnRegister);
 
-  const link = document.createElement("a");
-  link.className = "linkReturnRegister";
-  link.textContent = "Register Here";
-  sectionReturn.appendChild(link);
+  // const link = document.createElement("a");
+  // link.className = "linkReturnRegister";
+  // link.textContent = "Register Here";
+  // sectionReturn.appendChild(link);
 
-  link.addEventListener("click", () => {
-    window.location.hash = "#/register";
-    // console.log("Hola");
-  });
+  // link.addEventListener("click", () => {
+  //   window.location.hash = "#/register";
+  //   // console.log("Hola");
+  // });
+
   return loginContainer;
 };
