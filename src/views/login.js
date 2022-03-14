@@ -1,3 +1,4 @@
+/* eslint-disable import/no-duplicates */
 /* eslint-disable import/no-cycle */
 // eslint-disable-next-line import/no-duplicates
 import { loginWithGoogle } from "./firebase.js";

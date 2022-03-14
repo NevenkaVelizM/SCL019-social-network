@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-console */
 /* eslint-disable import/no-unresolved */
@@ -13,12 +14,11 @@ import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   sendEmailVerification,
-  // signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
 import { firebaseConfig } from "./config.js";
+// import { validateEmailRequire } from "./register.js";
 
-import { validateEmailRequire } from "./register.js";
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -32,11 +32,17 @@ export const registerUser = (userName, email, password) => {
       user.displayName = userName;
       // console.log(user);
       // ...
+
+
+
       // eslint-disable-next-line no-use-before-define
       emailVerificationRegister();
       // eslint-disable-next-line no-alert
       alert("Email verification sent!");
-      return (user);
+
+
+      return user;
+
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -46,7 +52,6 @@ export const registerUser = (userName, email, password) => {
       if (errorCode === "auth/invalid-email") {
         validateEmailRequire.style.display = "block";
       }
-
       if (errorCode === "auth/email-already-in-use") {
         validateEmailInUse.style.display = "block";
       } else {
@@ -63,11 +68,10 @@ export const registerUser = (userName, email, password) => {
   return createUserWithEmailAndPassword;
 };
 const emailVerificationRegister = () => {
-  sendEmailVerification(auth.currentUser)
-    .then(() => {
-      // Email verification sent!
-      // ...
-    });
+  sendEmailVerification(auth.currentUser).then(() => {
+    // Email verification sent!
+    // ...
+  });
 };
 
 // login con google
@@ -83,7 +87,8 @@ export const loginWithGoogle = () => {
       const user = result.user;
 
       // ...
-    }).catch((error) => {
+    })
+    .catch((error) => {
       // Handle Errors here.
 
       const errorCode = error.code;
