@@ -10,9 +10,10 @@ import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithPopup,
+  signOut,
   GoogleAuthProvider,
-  sendEmailVerification,
   signInWithEmailAndPassword,
+  sendEmailVerification,
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
 import { firebaseConfig } from "./config.js";
@@ -117,6 +118,7 @@ export const loginUser = (email, password) => {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
+      window.location.hash = "#/wall";
       // ...
     })
     .catch((error) => {
@@ -139,4 +141,13 @@ export const loginUser = (email, password) => {
         loginWrongPassword.style.display = "none";
       }
     });
+};
+
+export const logOut = () => {
+  signOut(auth).then(() => {
+    window.location.hash = "#/";
+  // Sign-out successful.
+  }).catch((error) => {
+  // An error happened.
+  });
 };
