@@ -119,9 +119,11 @@ export const viewLogin = () => {
   `;
   loginUserData.appendChild(btnRegister);
 
+
   btnRegister.addEventListener("click", () => {
     window.location.hash = "#/register";
   });
+
 
   // Creacion LoginFooter
 

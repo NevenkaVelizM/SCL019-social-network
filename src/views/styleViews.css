@@ -248,6 +248,34 @@ body{
 
 .loginLogoApp{
     width: 40%;
+
+}
+/* .loginLoginText{
+    position: relative;
+} */
+.welcomeText{
+    /* position:absolute; */
+    font-size: 15px;
+    color: #03A014;
+
+}
+.loginUser, .loginPassword{
+    font-size: 1.3em;
+    margin: 12px; 
+    color: white;
+}
+.loginEmailUser, .loginPasswordInput{
+    font-family:'Fira Code', monospace;
+    display: flex;
+    font-size: 1em;
+    padding: 5px;
+    border: 2px solid;
+    border-radius: 7px;
+    border-color: #00ffea;
+    background-color: #6B6A6A;
+    outline:none;
+    margin: 7px;  
+
 }
 /* .loginLoginText{
     position: relative;

@@ -33,16 +33,12 @@ export const registerUser = (userName, email, password) => {
       // console.log(user);
       // ...
 
-
-
       // eslint-disable-next-line no-use-before-define
       emailVerificationRegister();
       // eslint-disable-next-line no-alert
       alert("Email verification sent!");
 
-
       return user;
-
     })
     .catch((error) => {
       const errorCode = error.code;
