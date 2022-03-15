@@ -148,7 +148,7 @@ body{
   color: white;
   position: absolute;
   padding: 9px;
-  left: 290px;
+  left: 305px;
   cursor: pointer;
 }
 
@@ -226,6 +226,13 @@ body{
     background-color: #4b4a4a;
     margin-bottom: 21px;
 } 
+.login-iconEye {
+  color: white;
+  display: flex;
+  margin-left: -628px ;
+  margin-top: 7px;
+  cursor: pointer;
+}
 .returnRegister {
   display: flex;
   justify-content: center;
