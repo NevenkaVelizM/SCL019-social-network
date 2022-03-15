@@ -16,7 +16,7 @@ export const viewWall = () => {
   wallContainer.appendChild(btnLogout);
 
   btnLogout.addEventListener("click", () => {
-    window.location.hash = "#/";
+    window.location.hash = "#/login";
   });
   return wallContainer;
 };
