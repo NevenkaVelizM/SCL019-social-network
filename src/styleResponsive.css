@@ -7,7 +7,7 @@
     width: 1025px;
     height: 655px; 
  }
- .registerContainer, .loginContainer{
+ .registerContainer {
     --border-width: 3px; /* OJO NUEVA ANOTACION*/
     position: absolute;
     width: 955px;
@@ -68,7 +68,7 @@
   margin-left: 60px;
  }
         
- .logoApp, .loginLogoApp{
+ .logoApp{
     font-size: 20px;
     }
  .registerText{
@@ -95,11 +95,23 @@
     border-color: #00FFD1;
     margin-bottom: 20px;
     } 
- .buttonContinue, .login-btnContinue{
-    margin-top: 32px;
-    margin-left: 20px;
-    font-size: 18px ;
-    }
+    .buttonContinue, .login-btnContinue, .login-btnRegister, .buttonGoogle{
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      text-align: center;
+      margin-top: 21px;
+      background-color: #918d8d;
+      color: white;
+      font-size: 12px;
+      font-family:'Fira Code', monospace;
+      width: 16.20em;
+      padding: 8px;
+      border-radius: 3px; 
+      box-shadow: 2px 5px 4px 0px #00000040;
+      transition: all 0.5s;
+      cursor: pointer;
+  }
  .iconEye{
     position: absolute;
     padding: 4px;
@@ -112,39 +124,13 @@
    font-size: 10px;
    margin: 0;
    } 
- .buttonContinue, .login-btnContinue{
-   margin-top: 32px;
-   margin-left: 20px;
-   font-size: 18px ;
-   }
- /* .iconEye{
-   position: absolute;
-   padding: 4px;
-   left: 195px;
-     
- } */
+
  #nameEnter, #emailRequired, #passwordNoneText{
    display: none;
    color: rgb(104, 5, 5);
    font-size: 10px;
    font-style: italic;
  } 
- .buttonGoogle{
-  display: flex; 
-  justify-content: center;
-  align-items: center; 
-  margin-top: 20px;  
-   width: 203px; 
-  /* height: 29px;  */
-  margin-left: 20px;   
-  color: white;
-  font-size: 12px ;
-  font-family:'Fira Code', monospace;
-  background-color: #918d8d;
-  border-radius: 4px;
-  box-shadow: 2px 5px 4px 0px #00000040;
- }
-
  .buttonGoogle:hover{
   background-color: #850000;
   padding-left: 24px;
@@ -156,8 +142,8 @@
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
-   /* margin-top: 287px;
-   margin-left: 589px; */
+    margin-top: 57px;
+   /*margin-left: 589px; */
  }
  /* .rabbit-img, .loginRabbit-img{
    display: flex;
@@ -188,26 +174,50 @@
   cursor: pointer;
  }
  /* ------- SECCION LOGIN --------- */
+
+ .loginContainer{
+   --border-width: 3px; /* OJO NUEVA ANOTACION*/
+   position: absolute;
+   width: 1300px;
+   height: 580px;
+   left: 66px;
+   top: 37px;
+   background-color: #4b4a4a;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 20px;  
+   margin-left: 20px; 
+   color: white;
+   font-size: 1em ;
+   font-family:'Fira Code', monospace;
+   border-radius: var(--border-width);
+
+}
+
  .loginUserData{
-  /* display:flex; */
-  position: absolute;
+  display:flex; 
   align-items: center;
   flex-direction: column;
-  margin-top: 135px;
-  margin-left: 303px;
+  margin-left: 410px; 
  }
  .loginLogoApp{
-   font-size: 20px;
-   position: absolute;
-   width: 44px;
-   height: 29px;
-   left: 223px;
-   top: 76px;
+   display: flex;
+     width: 12%;
+     margin-top: 70px;
+     margin-left: 100px;
+ 
  }
  .loginLoginText{
   font-size: 25px;
   position: absolute;
-  left: 244px;
-  top: 52px;
+  left: 195px;
+  top: 207px;
  }
+}
+.login-iconEye{
+   position: absolute;
+   padding: 4px;
+   left: 934px;
+     
 }

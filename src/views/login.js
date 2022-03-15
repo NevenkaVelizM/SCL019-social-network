@@ -47,7 +47,7 @@ export const viewLogin = () => {
     <span class="displayNone"><p id="emailLoginEnter" class="emailLoginEnter"> Enter a valid e-mail </p></span>
     <span class="displayNone"><p id="userNotFound" class="userNotFound"> User not found </p></span>
     <div class="loginPassword"> Password </div>
-    <span class="iconEye"><i id="checkEye" class="fas fa-eye-slash"></i></span>
+    <span class="login-iconEye"><i id="checkEye" class="fas fa-eye-slash"></i></span>
     <input type="password" id="loginPasswordInput" class="loginPasswordInput" placeholder= "Enter password" size ="25" required/>
     <span class="displayNone"><p id="wrongPassword" class="wrongPassword"> Wrong password </p></span>
     <span class="displayNone"><p id="enterPasswordPassword" class="enterPassword"> Enter password </p></span>
@@ -59,7 +59,7 @@ export const viewLogin = () => {
   // console.log('Hola mundo!');
 
   // Mostrar y ocultar contraseña
-  const iconEye = loginUserData.querySelector(".iconEye");
+  const iconEye = loginUserData.querySelector(".login-iconEye");
   const checkEye = loginUserData.querySelector("#checkEye");
   const loginPasswordInput = loginUserData.querySelector("#loginPasswordInput");
 
