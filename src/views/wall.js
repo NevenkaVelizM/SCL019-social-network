@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { logOut } from "./firebase.js";
 
 export const viewWall = () => {
@@ -16,7 +17,7 @@ export const viewWall = () => {
   wallContainer.appendChild(btnLogout);
 
   btnLogout.addEventListener("click", () => {
-    window.location.hash = "#/login";
+    window.location.hash = "#/";
   });
   return wallContainer;
 };

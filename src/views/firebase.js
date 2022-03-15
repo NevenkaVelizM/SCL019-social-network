@@ -99,28 +99,34 @@ export const loginWithGoogle = () => {
 };
 
 // para conocer el estado de autenticación del usuario
-export const activeUser = () => {
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
-      // ...
-    } else {
-      // User is signed out
-      // ...
-    }
-  });
-};
+// export const activeUser = () => {
+//   onAuthStateChanged(auth, (user) => {
+//     if ((user !== null || undefined) && user.emailVerified === true) {
+//       // User is signed in, see docs for a list of available properties
+//       // https://firebase.google.com/docs/reference/js/firebase.User
+//       const uid = user.uid;
+//       console.log("user is signed in");
+//       // ...
+//     } else if (window.location.hash === "#/") {
+//       console.log("User is signed out");
+//       // ...
+//     }
+//   });
+// };
 
 export const loginUser = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      window.location.hash = "#/wall";
+      if (user.emailVerified === true) {
+        window.location.hash = "#/wall";
       // ...
+      } else {
+        alert("Debes verificar tu email para poder ingresar");
+      }
     })
+
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
