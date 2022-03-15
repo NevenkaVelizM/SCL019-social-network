@@ -43,7 +43,7 @@ export const viewLogin = () => {
   loginUserData.innerHTML = `
     <form id="loginFormLogin" class="loginFormLogin">
     <div class="loginUser"> User </div>
-    <input type="text" id="loginEmailUser" class="loginEmailUser" placeholder= "name || nickName || email" autocomplete= "off" size ="25" required />
+    <input type="text" id="loginEmailUser" class="loginEmailUser" placeholder= "Enter email" autocomplete= "off" size ="25" required />
     <span class="displayNone"><p id="emailLoginEnter" class="emailLoginEnter"> Enter a valid e-mail </p></span>
     <span class="displayNone"><p id="userNotFound" class="userNotFound"> User not found </p></span>
     <div class="loginPassword"> Password </div>
@@ -80,7 +80,7 @@ export const viewLogin = () => {
   const btnContinue = document.createElement("div");
   btnContinue.className = "login-btnContinue-place";
   btnContinue.innerHTML = `
-   <input type="button" id="buttonContinue" class="login-btnContinue" value="Continue">
+   <input type="button" id="buttonContinue" class="login-btnContinue" value="CONTINUE">
    `;
   loginUserData.appendChild(btnContinue);
   btnContinue.addEventListener("click", () => {
@@ -119,11 +119,9 @@ export const viewLogin = () => {
   `;
   loginUserData.appendChild(btnRegister);
 
-
   btnRegister.addEventListener("click", () => {
     window.location.hash = "#/register";
   });
-
 
   // Creacion LoginFooter
 
@@ -132,10 +130,10 @@ export const viewLogin = () => {
   loginInfoContainer.appendChild(loginFooter);
 
   // Agregamos imagen para version responsive
-  const rabbit = document.createElement("img");
-  rabbit.className = "loginRabbit-img";
-  rabbit.setAttribute("src", "./assets/white-rabbit.png");
-  loginFooter.appendChild(rabbit);
+  // const rabbit = document.createElement("img");
+  // rabbit.className = "loginRabbit-img";
+  // rabbit.setAttribute("src", "./assets/white-rabbit.png");
+  // loginFooter.appendChild(rabbit);
   // Seccion link to Register
   const sectionReturn = document.createElement("div");
   sectionReturn.className = "sectionReturn";
