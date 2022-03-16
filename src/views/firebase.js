@@ -60,9 +60,9 @@ export const registerUser = (userName, email, password) => {
       // console.log(errorCode, errorMessage);
       // ..
     });
-
   return createUserWithEmailAndPassword;
 };
+
 const emailVerificationRegister = () => {
   sendEmailVerification(auth.currentUser).then(() => {
     // Email verification sent!
@@ -99,20 +99,19 @@ export const loginWithGoogle = () => {
 };
 
 // para conocer el estado de autenticación del usuario
-// export const activeUser = () => {
-//   onAuthStateChanged(auth, (user) => {
-//     if ((user !== null || undefined) && user.emailVerified === true) {
-//       // User is signed in, see docs for a list of available properties
-//       // https://firebase.google.com/docs/reference/js/firebase.User
-//       const uid = user.uid;
-//       console.log("user is signed in");
-//       // ...
-//     } else if (window.location.hash === "#/") {
-//       console.log("User is signed out");
-//       // ...
-//     }
-//   });
-// };
+export const activeUser = () => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const uid = user.uid;
+      // ...
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
+};
 
 export const loginUser = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
@@ -121,9 +120,11 @@ export const loginUser = (email, password) => {
       const user = userCredential.user;
       if (user.emailVerified === true) {
         window.location.hash = "#/wall";
+        console.log(user);
       // ...
       } else {
         alert("Debes verificar tu email para poder ingresar");
+        console.log(user);
       }
     })
 
