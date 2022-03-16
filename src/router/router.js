@@ -10,8 +10,10 @@ export const changeView = (hash) => {
   if (hash === "" || hash === "#" || hash === "#/") {
     container.appendChild(viewLogin());
   } else if (hash === "#/register") {
+    container.innerHTML = "";
     container.appendChild(viewRegister());
   } else if (hash === "#/wall") {
+    container.innerHTML = "";
     container.appendChild(viewWall());
   }
 };

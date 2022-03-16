@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { logOut } from "./firebase.js";
 
 export const viewWall = () => {
