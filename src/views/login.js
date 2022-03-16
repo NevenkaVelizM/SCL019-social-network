@@ -43,11 +43,11 @@ export const viewLogin = () => {
   loginUserData.innerHTML = `
     <form id="loginFormLogin" class="loginFormLogin">
     <div class="loginUser"> User </div>
-    <input type="text" id="loginEmailUser" class="loginEmailUser" placeholder= "name || nickName || email" autocomplete= "off" size ="25" required />
+    <input type="text" id="loginEmailUser" class="loginEmailUser" placeholder= "Enter email" autocomplete= "off" size ="25" required />
     <span class="displayNone"><p id="emailLoginEnter" class="emailLoginEnter"> Enter a valid e-mail </p></span>
     <span class="displayNone"><p id="userNotFound" class="userNotFound"> User not found </p></span>
     <div class="loginPassword"> Password </div>
-    <span class="iconEye"><i id="checkEye" class="fas fa-eye-slash"></i></span>
+    <span class="login-iconEye"><i id="checkEye" class="fas fa-eye-slash"></i></span>
     <input type="password" id="loginPasswordInput" class="loginPasswordInput" placeholder= "Enter password" size ="25" required/>
     <span class="displayNone"><p id="wrongPassword" class="wrongPassword"> Wrong password </p></span>
     <span class="displayNone"><p id="enterPasswordPassword" class="enterPassword"> Enter password </p></span>
@@ -59,7 +59,7 @@ export const viewLogin = () => {
   // console.log('Hola mundo!');
 
   // Mostrar y ocultar contraseña
-  const iconEye = loginUserData.querySelector(".iconEye");
+  const iconEye = loginUserData.querySelector(".login-iconEye");
   const checkEye = loginUserData.querySelector("#checkEye");
   const loginPasswordInput = loginUserData.querySelector("#loginPasswordInput");
 
@@ -80,7 +80,7 @@ export const viewLogin = () => {
   const btnContinue = document.createElement("div");
   btnContinue.className = "login-btnContinue-place";
   btnContinue.innerHTML = `
-   <input type="button" id="buttonContinue" class="login-btnContinue" value="Continue">
+   <input type="button" id="buttonContinue" class="login-btnContinue" value="CONTINUE">
    `;
   loginUserData.appendChild(btnContinue);
   btnContinue.addEventListener("click", () => {
@@ -130,10 +130,10 @@ export const viewLogin = () => {
   loginInfoContainer.appendChild(loginFooter);
 
   // Agregamos imagen para version responsive
-  const rabbit = document.createElement("img");
-  rabbit.className = "loginRabbit-img";
-  rabbit.setAttribute("src", "./assets/white-rabbit.png");
-  loginFooter.appendChild(rabbit);
+  // const rabbit = document.createElement("img");
+  // rabbit.className = "loginRabbit-img";
+  // rabbit.setAttribute("src", "./assets/white-rabbit.png");
+  // loginFooter.appendChild(rabbit);
   // Seccion link to Register
   const sectionReturn = document.createElement("div");
   sectionReturn.className = "sectionReturn";

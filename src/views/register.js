@@ -62,7 +62,6 @@ export const viewRegister = () => {
   `;
 
   infoContainer.appendChild(userData);
-  // console.log('Hola mundo!');
 
   // Mostrar y ocultar contraseña
   const iconEye = userData.querySelector(".iconEye");
@@ -153,10 +152,10 @@ export const viewRegister = () => {
   footerRegister.className = "footerRegister";
   infoContainer.appendChild(footerRegister);
 
-  const rabbit = document.createElement("img");
-  rabbit.className = "rabbit-img";
-  rabbit.setAttribute("src", "./assets/white-rabbit.png");
-  footerRegister.appendChild(rabbit);
+  // const rabbit = document.createElement("img");
+  // rabbit.className = "rabbit-img";
+  // rabbit.setAttribute("src", "./assets/white-rabbit.png");
+  // footerRegister.appendChild(rabbit);
   // Seccion
   const sectionReturn = document.createElement("div");
   sectionReturn.className = "sectionReturn";
