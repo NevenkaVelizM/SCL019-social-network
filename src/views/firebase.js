@@ -120,11 +120,11 @@ export const loginUser = (email, password) => {
       const user = userCredential.user;
       if (user.emailVerified === true) {
         window.location.hash = "#/wall";
-        console.log(user);
+        // console.log(user);
       // ...
       } else {
         alert("Debes verificar tu email para poder ingresar");
-        console.log(user);
+        // console.log(user);
       }
     })
 
