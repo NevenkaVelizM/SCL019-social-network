@@ -43,7 +43,7 @@ export const viewLogin = () => {
   loginUserData.innerHTML = `
     <form id="loginFormLogin" class="loginFormLogin">
     <div class="loginUser"> User </div>
-    <input type="text" id="loginEmailUser" class="loginEmailUser" placeholder= "Enter email" autocomplete= "off" size ="25" required />
+    <input type="text" id="loginEmailUser" class="loginEmailUser" placeholder= "Enter email" autocomplete= "on" size ="25" required />
     <span class="displayNone"><p id="emailLoginEnter" class="emailLoginEnter"> Enter a valid e-mail </p></span>
     <span class="displayNone"><p id="userNotFound" class="userNotFound"> User not found </p></span>
     <div class="loginPassword"> Password </div>

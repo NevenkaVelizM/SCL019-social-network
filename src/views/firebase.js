@@ -15,9 +15,12 @@ import {
   signInWithEmailAndPassword,
   sendEmailVerification,
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
-
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
+// import { collection, addDoc } from "firebase/firestore";
 import { firebaseConfig } from "./config.js";
 // import { validateEmailRequire } from "./register.js";
+
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -101,15 +104,13 @@ export const loginWithGoogle = () => {
 // para conocer el estado de autenticación del usuario
 // export const activeUser = () => {
 //   onAuthStateChanged(auth, (user) => {
-//     if ((user !== null || undefined) && user.emailVerified === true) {
+//     if (user) {
 //       // User is signed in, see docs for a list of available properties
 //       // https://firebase.google.com/docs/reference/js/firebase.User
 //       const uid = user.uid;
-//       console.log("user is signed in");
 //       // ...
-//     } else if (window.location.hash === "#/") {
-//       console.log("User is signed out");
-//       // ...
+//     } else {
+//       // ...User is signed out
 //     }
 //   });
 // };
@@ -157,3 +158,10 @@ export const logOut = () => {
   // An error happened.
   });
 };
+
+// -------------------------FIRESTORE----------------------------
+
+// Conectamos con nuestra Base de datos
+export const db = getFirestore();
+
+export const saveTask = (title, description) => addDoc(collection(db, "usuarios"), { title, description });
