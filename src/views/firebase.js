@@ -4,17 +4,33 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-vars */
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+// import {
+//   getAuth,
+//   onAuthStateChanged,
+//   createUserWithEmailAndPassword,
+//   signInWithPopup,
+//   signOut,
+//   GoogleAuthProvider,
+//   signInWithEmailAndPassword,
+//   sendEmailVerification,
+// } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
+// import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
+// // import { collection, addDoc } from "firebase/firestore";
 import {
-  getAuth,
-  onAuthStateChanged,
+  GoogleAuthProvider,
+  addDoc,
+  collection,
   createUserWithEmailAndPassword,
+  getAuth,
+  getFirestore,
+  initializeApp,
+  onAuthStateChanged,
+  sendEmailVerification,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  GoogleAuthProvider,
-  signInWithEmailAndPassword,
-  sendEmailVerification,
-} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
+} from "./firebase-init.js";
 
 import { firebaseConfig } from "./config.js";
 // import { validateEmailRequire } from "./register.js";
@@ -81,6 +97,7 @@ export const loginWithGoogle = () => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
+      window.location.hash = "#/wall";
 
       // ...
     })
@@ -158,3 +175,10 @@ export const logOut = () => {
   // An error happened.
   });
 };
+
+// -------------------------FIRESTORE----------------------------
+
+// Conectamos con nuestra Base de datos
+export const db = getFirestore();
+
+export const saveTask = (title, description) => addDoc(collection(db, "usuarios"), { title, description });
