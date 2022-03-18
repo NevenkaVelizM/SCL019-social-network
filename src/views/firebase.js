@@ -181,4 +181,4 @@ export const logOut = () => {
 // Conectamos con nuestra Base de datos
 export const db = getFirestore();
 
-export const saveTask = (title, description) => addDoc(collection(db, "usuarios"), { title, description });
+export const saveTask = (description) => addDoc(collection(db, "usuarios"), { description });
