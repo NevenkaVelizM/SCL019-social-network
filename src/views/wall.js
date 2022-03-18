@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 // import { logOut } from "./firebase.js";
-import { saveTask } from "./firebase.js";
+// import { saveTask } from "./firebase.js";
 
 export const viewWall = () => {
   const wallContainer = document.createElement("div");
@@ -40,16 +40,15 @@ export const viewWall = () => {
   infoWallContainer.appendChild(wallPostData);
 
   // Creamos una funcion para guardar post en Firestore
-  const taskForm = document.getElementById("task-form");
-  taskForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const title = taskForm["task-title"];
-    const description = taskForm["task-description"];
+  // const taskForm = document.getElementById("task-form");
+  // taskForm.addEventListener("submit", (e) => {
+  //   e.preventDefault();
+  //   const title = taskForm["task-title"];
+  //   const description = taskForm["task-description"];
 
-    saveTask(title.value, description.value);
-  });
+  //   saveTask(title.value, description.value);
+  // });
 
- 
   // const messageWall = document.createElement("p");
   // messageWall.textContent = "wall under construction";
   // wallContainer.appendChild(messageWall);
