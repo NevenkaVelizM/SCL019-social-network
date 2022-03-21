@@ -32,6 +32,6 @@ export {
   sendEmailVerification,
   getFirestore,
   collection,
-  addDoc,
   getDocs,
+  addDoc,
 };

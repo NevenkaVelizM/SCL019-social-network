@@ -69,7 +69,12 @@ export const viewWall = () => {
  <label for="description">Description:</label>
  <input type="text" id="task-description" rows="3" class="makePost" placeholder="Task Description"></input>
  <span class="errorPost"></span>
+ <span class="wall-off"><i class="fa fa-power-off"></i></span>
+ <span class="post-remove"><i class="fa fa-trash"></i></span>
+ <span class="post-like"><i class="fa fa-thumbs-up"></i></span>
  `;
+
+  // infoWallContainer.appendChild(wallPostData);
   postSection.appendChild(wallPostData);
 
   // Creamos boton de Post
