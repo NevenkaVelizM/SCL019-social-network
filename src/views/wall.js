@@ -109,7 +109,7 @@ export const viewWall = () => {
   //   let html = "";
   //   querySnapshot.forEach((doc) => {
   //    console.log(doc.data());
-     
+
   //     const task = doc.data();
   //     html += `
   //      <div>
@@ -118,10 +118,10 @@ export const viewWall = () => {
   //      </div>
   //     `;
   //    });
-  
+
   //    createPost.innerHTML = html;
   //  });
   // }
-  
+
   return wallContainer;
 };
