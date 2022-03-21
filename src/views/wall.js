@@ -1,10 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 // import { logOut } from "./firebase.js";
-import { saveTask } from "./firebase.js";
 
-window.addEventListener("DOMContentLoaded", () => {
-  console.log("works");
-});
+import { saveTask } from "./firebase.js";
 
 export const viewWall = () => {
   const wallContainer = document.createElement("div");
@@ -37,7 +34,11 @@ export const viewWall = () => {
  <label for="description">Description:</label>
  <textarea id="task-description" rows="3" class="makePost" placeholder="Task Description"></textarea>
  </form>
+ <span class="wall-off"><i class="fa fa-power-off"></i></span>
+ <span class="post-remove"><i class="fa fa-trash"></i></span>
+ <span class="post-like"><i class="fa fa-thumbs-up"></i></span>
  `;
+
   infoWallContainer.appendChild(wallPostData);
 
   // Creamos boton de Post
@@ -51,7 +52,7 @@ export const viewWall = () => {
   // Creamos una funcion para guardar post en Firestore
   btnPost.addEventListener("click", () => {
     const description = document.getElementById("task-description").value;
-    console.log(description);
+    // console.log(description);
     saveTask(description);
     document.getElementById("task-description").value = "";
   });
