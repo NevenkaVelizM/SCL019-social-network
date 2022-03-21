@@ -38,7 +38,6 @@ export const viewRegister = () => {
   headerLogin.appendChild(registerText);
 
   // Creacion de los campos de texto
-
   const userData = document.createElement("div");
   userData.className = "userData";
   userData.innerHTML = `
@@ -80,8 +79,6 @@ export const viewRegister = () => {
     }
   });
 
-  //  const passwordRequired = document.querySelector(".passwordLogin");
-  //  console.log(passwordRequired);
   // Agregamos una funcion para mostrar un mensaje de advertencia en el password
   passwordLogin.onkeyup = function () {
     document.getElementById("passwordRequiredText").style.display = "block";
@@ -103,16 +100,6 @@ export const viewRegister = () => {
     }
 
     const email = document.getElementById("emailLogin").value;
-    // const validEmail = () => {
-    //   // expresión regular que simula el patron de búsqueda del correo electrónico
-    //   const regEx = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/;
-    //   return regEx.test(email);
-    // };
-    // if (email === "" || !validEmail(email)) {
-    //   document.querySelector(".emailRequired").style.display = "block";
-    // } else {
-    //   document.querySelector(".emailRequired").style.display = "none";
-    // }
     if (email === "") {
       document.querySelector(".emailRequired").style.display = "block";
     } else {
@@ -129,23 +116,6 @@ export const viewRegister = () => {
     // // // console.log(registerUser);
   });
 
-  // infoContainer.appendChild(buttonContinue);
-
-  // prueba boton de registro
-  // const buttonContinue = document.querySelector(".submit-register");
-  // console.log(buttonContinue);
-
-  //   buttonContinue.addEventListener("click", (e) => {
-  //    e.preventDefault();
-  //     const userName = document.getElementById("registerNameLogin").value;
-  //    const email = document.getElementById("emailLogin").value;
-  //    const password = document.getElementById("passwordLogin").value;
-
-  //     registerUser(userName, email, password);
-
-  // // // console.log(registerUser);
-  //   });
-  // // console.log(buttonContinue)
   // SECCION FINAL DEL REGISTRO
 
   const footerRegister = document.createElement("div");
@@ -180,4 +150,3 @@ export const viewRegister = () => {
 
 export const validateEmailRequire = document.querySelector(".emailRequired");
 export const validateEmailInUse = document.querySelector(".emailInUseInvalid");
-// console.log("me ejecuto primero");

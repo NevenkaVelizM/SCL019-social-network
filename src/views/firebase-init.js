@@ -17,7 +17,6 @@ import {
   collection,
   addDoc,
   getDocs,
-// eslint-disable-next-line import/no-unresolved
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
 // import { collection, addDoc } from "firebase/firestore";
 
