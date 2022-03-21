@@ -76,7 +76,6 @@ export const viewLogin = () => {
   });
 
   // Boton Continuar
-
   const btnContinue = document.createElement("div");
   btnContinue.className = "login-btnContinue-place";
   btnContinue.innerHTML = `
@@ -101,7 +100,6 @@ export const viewLogin = () => {
   });
 
   // Botón de google
-
   const buttonGoogle = document.createElement("div");
   buttonGoogle.className = "btnGoogle";
   buttonGoogle.innerHTML = `

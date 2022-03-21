@@ -55,7 +55,6 @@ export const viewWall = () => {
     saveTask(description);
     document.getElementById("task-description").value = "";
   });
-
   // const messageWall = document.createElement("p");
   // messageWall.textContent = "wall under construction";
   // wallContainer.appendChild(messageWall);
