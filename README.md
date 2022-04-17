@@ -64,4 +64,3 @@ Para verificar que nuestra aplicacion tuviera los adecuados criterios de diseño
 
 
 ### 2.5 Despliegue GitHub pages
-	Puedes hacer uso de <a href="https://nevenkavelizm.github.io/SCL019-social-network/src/index.html">pinchando el enlace</a> 
