@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
 import {
   getAuth,
   onAuthStateChanged,
@@ -9,15 +9,27 @@ import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   sendEmailVerification,
+  updateProfile,
 // eslint-disable-next-line import/no-unresolved
-} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 // eslint-disable-next-line import/no-unresolved
 import {
   getFirestore,
+  doc,
+  query,
   collection,
   addDoc,
+  getDoc,
   getDocs,
-} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
+  onSnapshot,
+  orderBy,
+  updateDoc,
+  deleteDoc,
+  Timestamp,
+  arrayRemove,
+  arrayUnion,
+// eslint-disable-next-line import/no-unresolved
+} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 // import { collection, addDoc } from "firebase/firestore";
 
 export {
@@ -34,4 +46,15 @@ export {
   collection,
   getDocs,
   addDoc,
+  onSnapshot,
+  doc,
+  query,
+  getDoc,
+  orderBy,
+  updateDoc,
+  deleteDoc,
+  Timestamp,
+  arrayRemove,
+  arrayUnion,
+  updateProfile,
 };

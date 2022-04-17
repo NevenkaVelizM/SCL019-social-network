@@ -1,17 +1,14 @@
-@media (min-width: 950px){
-    
-    /*Register Section*/
+ @media screen and (min-width: 900px){
+/*Register Section*/
+ 
  body{
-    background-color: #121111;
-    position: relative;
-    width: 1025px;
-    height: 655px; 
+    background-color: #4b4a4a;
  }
  .registerContainer {
-    --border-width: 3px; /* OJO NUEVA ANOTACION*/
+    --border-width: 3px;
     position: absolute;
     width: 955px;
-    height: 500px;
+    height: 550px;
     left: 250px;
     top: 110px;
     background-color: #4b4a4a;
@@ -71,6 +68,11 @@
  .logoApp{
     font-size: 20px;
     }
+
+  .welcomeText{
+      text-align: left;  
+  }
+
  .registerText{
     font-size: 25px;
     }
@@ -112,25 +114,20 @@
       transition: all 0.5s;
       cursor: pointer;
   }
- .iconEye{
-    position: absolute;
-    /* padding: 4px; */
-    left: 1570px;
-      
- }
+
  #passwordRequiredText{
-   display: none;
-   color: rgb(104, 5, 5);
-   font-size: 10px;
-   margin: 0;
+   color: white;
+   margin-left: 10px;
+   margin-top: -15px;
    } 
 
  #nameEnter, #emailRequired, #passwordNoneText{
    display: none;
-   color: rgb(104, 5, 5);
-   font-size: 10px;
-   font-style: italic;
+   color: white;
+   margin-left: 10px;
+   margin-top: -15px;
  } 
+
  .buttonGoogle:hover{
   background-color: #850000;
   padding-left: 24px;
@@ -162,14 +159,17 @@
  .returnLogin{
   display: flex;
   justify-content: center;
-  font-size: 10px;
-  color: #F5F5F5
+  font-size: 12px;
+  color: #F5F5F5;
+  margin-right: 10px;
  }
  .linkReturnLogin{
   display: flex;
   justify-content: center;
   margin-top: 7px;
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 40px;
   color: #00FF0A;
   cursor: pointer;
  }
@@ -202,10 +202,10 @@
   margin-left: 410px; 
  }
  .loginLogoApp{
-   display: flex;
-     width: 12%;
-     margin-top: 70px;
-     margin-left: 100px;
+    display: flex;
+    width: 12%;
+    margin-top: 70px;
+    margin-left: 100px;
  
  }
  .loginLoginText{
@@ -214,10 +214,77 @@
   left: 195px;
   top: 207px;
  }
+
+
+/*----------Wall Section -----------*/
+
+.wall {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 20% 5% 1fr 1fr 5% 20%;
+  grid-template-rows: 20% 15% 1fr;
 }
-.login-iconEye{
-   position: absolute;
-   padding: 4px;
-   left: 1567px;
-     
+
+.wall-logo {
+  display: block;
+  width: 11em;
+  margin-left: 3em;
+}
+
+#btnLogout {
+  color: white;
+  display: flex;
+  margin: 55px 120px;
+  cursor: pointer;
+  font-size: em;
+  }
+
+#container-posts {
+    grid-column: 3/5;
+    grid-row: 2/4;
+}
+
+#btn-input-modal{/*boton con efecto modal*/
+  font-size: 1.2em;
+}
+
+#div-post{ /*contenedor de los post*/
+  grid-column: 3/5;
+  grid-row: 3/4;
+  margin-top: 100px;
+}
+
+.card-post{/*Tarjeta y contenedor de cada post*/
+  height: 210px;
+ }
+ #container-likes {/*contenedor de like texto e imagenes*/
+  width: 10%;
+}
+#modal-background-post{ /*Fondo de la modal para publicar*/
+  width: 50%;
+}
+
+#modal-content-post { /*contenido de la modal para publicar*/
+  width: 55%;
+  top: 160px;
+}
+
+#container-modal-delete{/*Fondo modal confirmar, para eliminar el post*/
+  width: 50%;
+}
+
+#modal-content-delete {/*contenido de la modal confirmar, para eliminar el post*/
+  width: 45%;
+}
+
+}
+
+@media screen and (min-width: 700px){
+.card-post {
+  height: 220px;
+}
+
 }

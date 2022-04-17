@@ -1,16 +1,10 @@
 /* eslint-disable func-names */
 // eslint-disable-next-line import/no-cycle
 import { registerUser } from "./firebase.js";
-// eslint-disable-next-line import/no-cycle
 
 export const viewRegister = () => {
-  // console.log("me ejecuto segundo");
-  // aqui va el DOM de nuestra pagina de registro
-  // Creamos el padre de toda la seccion Register
-
   const registerContainer = document.createElement("div");
   registerContainer.className = "registerContainer";
-  // root.appendChild(registerContainer);
 
   // Creamos el contenedor de toda la seccion
   const infoContainer = document.createElement("div");
@@ -44,45 +38,29 @@ export const viewRegister = () => {
   <form id="formLogin" class="FormLogin">
   <div class="name"> Name </div>
   <input type="text" id="registerNameLogin" class="registerNameLogin" placeholder= "Enter your name" autocomplete= "off" size ="25"/>
-  <span class="displayNone"><p id="nameEnter" class="enterName"> Enter name </p></span>
+  <span class="displayNone"><p id="nameEnter" class="enterName"> ⚠️Enter name </p></span>
   <div class="nickName"> Nickname </div>
   <input type="text" id="nickNameLogin" class="nickNameLogin" placeholder= "Enter your nickname" autocomplete= "off" size ="25"/>
   <div class="email"> E-mail </div>
   <input type="email" id="emailLogin" class="emailLogin" placeholder= "Enter e-mail" autocomplete= "off" size ="25" required/>
-  <span class="displayNone"><p id="emailRequired" class="emailRequired"> Enter a valid e-mail </p></span>
-  <span class="displayNone"><p id="emailInUse" class="emailInUseInvalid"> Error: email-already in use </p></span>
+  <span class="displayNone"><p id="emailRequired" class="emailRequired"> ⚠️Enter a valid e-mail </p></span>
+  <span class="displayNone"><p id="emailInUse" class="emailInUseInvalid"> ⚠️Error: email-already in use </p></span>
   <div class="password"> Password </div>
-  <span class="iconEye"><i id="checkEye" class="fas fa-eye-slash"></i></span>
   <input type="password" id="passwordLogin" class="passwordLogin" placeholder= "Enter password" minlength="6" maxlength="8" size ="25"/>
-  <span class="displayNone"><p id="passwordRequiredText"> *Minimum 6 characters </p></span>
-  <span class="displayNone"><p id="passwordNoneText" class="nonePassword"> Enter password </p></span>
+  <span class="displayNone"><p id="passwordRequiredText"> ⚠️Minimum 6 characters </p></span>
+  <span class="displayNone"><p id="passwordNoneText" class="nonePassword"> ⚠️Enter password </p></span>
   </form>
   </div>
   `;
 
   infoContainer.appendChild(userData);
 
-  // Mostrar y ocultar contraseña
-  const iconEye = userData.querySelector(".iconEye");
-  const checkEye = userData.querySelector("#checkEye");
-  const passwordLogin = userData.querySelector("#passwordLogin");
-
-  iconEye.addEventListener("click", () => {
-    if (passwordLogin.type === "password") {
-      passwordLogin.type = "text";
-      checkEye.classList.remove("fa-eye-slash");
-      checkEye.classList.add("fa-eye");
-    } else {
-      passwordLogin.type = "password";
-      checkEye.classList.add("fa-eye-slash");
-      checkEye.classList.remove("fa-eye");
-    }
-  });
-
   // Agregamos una funcion para mostrar un mensaje de advertencia en el password
+  const passwordLogin = userData.querySelector("#passwordLogin");
   passwordLogin.onkeyup = function () {
     document.getElementById("passwordRequiredText").style.display = "block";
   };
+
   // boton de continuar
   const buttonContinue = document.createElement("div");
   buttonContinue.className = "buttonContinue-place";
@@ -91,7 +69,6 @@ export const viewRegister = () => {
    `;
   userData.appendChild(buttonContinue);
   buttonContinue.addEventListener("click", () => {
-    //  e.preventDefault();
     const userName = document.getElementById("registerNameLogin").value;
     if (userName === "") {
       document.querySelector(".enterName").style.display = "block";
@@ -113,7 +90,6 @@ export const viewRegister = () => {
       document.querySelector(".nonePassword").style.display = "none";
     }
     registerUser(userName, email, password);
-    // // // console.log(registerUser);
   });
 
   // SECCION FINAL DEL REGISTRO
@@ -122,10 +98,6 @@ export const viewRegister = () => {
   footerRegister.className = "footerRegister";
   infoContainer.appendChild(footerRegister);
 
-  // const rabbit = document.createElement("img");
-  // rabbit.className = "rabbit-img";
-  // rabbit.setAttribute("src", "./assets/white-rabbit.png");
-  // footerRegister.appendChild(rabbit);
   // Seccion
   const sectionReturn = document.createElement("div");
   sectionReturn.className = "sectionReturn";

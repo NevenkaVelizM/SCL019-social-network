@@ -1,27 +1,16 @@
-/* eslint-disable no-alert */
-/* eslint-disable import/no-cycle */
-/* eslint-disable no-console */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable no-unused-vars */
-// Import the functions you need from the SDKs you need
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
-// import {
-//   getAuth,
-//   onAuthStateChanged,
-//   createUserWithEmailAndPassword,
-//   signInWithPopup,
-//   signOut,
-//   GoogleAuthProvider,
-//   signInWithEmailAndPassword,
-//   sendEmailVerification,
-// } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
-// import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
-// // import { collection, addDoc } from "firebase/firestore";
 import {
   GoogleAuthProvider,
   addDoc,
-  getDocs,
+  getDoc,
+  query,
   collection,
+  onSnapshot,
+  deleteDoc,
+  doc,
+  updateDoc,
+  arrayRemove,
+  arrayUnion,
+  Timestamp,
   createUserWithEmailAndPassword,
   getAuth,
   getFirestore,
@@ -31,30 +20,26 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  orderBy,
+  updateProfile,
 } from "./firebase-init.js";
 
 import { firebaseConfig } from "./config.js";
-// import { validateEmailRequire } from "./register.js";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth();
+export const auth = getAuth(app);
 
 // registro con email y contraseña (Registro de usuarios nuevos)
-export const registerUser = (userName, email, password) => {
+export const registerUser = (name, email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in
       const user = userCredential.user;
-      user.displayName = userName;
-      // console.log(user);
-      // ...
-
-      // eslint-disable-next-line no-use-before-define
+      updateProfile(user, {
+        displayName: name,
+      });
       emailVerificationRegister();
-      // eslint-disable-next-line no-alert
       alert("Email verification sent!");
-
       return user;
     })
     .catch((error) => {
@@ -70,20 +55,12 @@ export const registerUser = (userName, email, password) => {
       } else {
         validateEmailInUse.style.display = "none";
       }
-      // console.log(errorCode, errorMessage);
-
-      // ..
-
-      // console.log(errorCode, errorMessage);
-      // ..
     });
   return createUserWithEmailAndPassword;
 };
 
 const emailVerificationRegister = () => {
   sendEmailVerification(auth.currentUser).then(() => {
-    // Email verification sent!
-    // ...
   });
 };
 
@@ -92,39 +69,27 @@ export const loginWithGoogle = () => {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
     .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
       window.location.hash = "#/wall";
-
-      // ...
     })
     .catch((error) => {
-      // Handle Errors here.
-
       const errorCode = error.code;
       const errorMessage = error.message;
-      // The email of the user's account used.
       const email = error.email;
-      // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
-
-      // ...
     });
 };
 
-// para conocer el estado de autenticación del usuario
+// Para conocer el estado de autenticación del usuario
 export const activeUser = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
-      // ...
-    } else {
+      window.location.hash = "#/wall";
+      const userId = user.uid;
+    } else if (!user) {
       // User is signed out
       // ...
     }
@@ -138,11 +103,8 @@ export const loginUser = (email, password) => {
       const user = userCredential.user;
       if (user.emailVerified === true) {
         window.location.hash = "#/wall";
-        // console.log(user);
-      // ...
       } else {
-        alert("Debes verificar tu email para poder ingresar");
-        // console.log(user);
+        alert("Please verify your email for login");
       }
     })
 
@@ -182,6 +144,39 @@ export const logOut = () => {
 // Conectamos con nuestra Base de datos
 export const db = getFirestore();
 
-export const saveTask = (description) => addDoc(collection(db, "usuarios"), { description });
+export const savePost = (description) => {
+  let userName;
+  if (auth.currentUser.displayName === null) {
+    userName = auth.currentUser.email;
+  } else {
+    userName = auth.currentUser.displayName;
+  }
+  addDoc(collection(db, "posts"), {
+    userPost: description,
+    userName,
+    userId: auth.currentUser.uid,
+    like: [],
+    currentDate: Timestamp.fromDate(new Date()),
+  });
+};
 
-export const getTasks = getDocs(collection(db, "usuarios"));
+// Obtener posts en tiempo real
+export const getPosts = (callback) => {
+  const colRef = collection(db, "posts");
+  const q = query(colRef, orderBy("currentDate", "desc"));
+  onSnapshot(q, callback);
+};
+
+export const deletePost = (id) => deleteDoc(doc(db, "posts", id));
+
+export const getPost = (id) => getDoc(doc(db, "posts", id));
+
+export const updatePost = (id, updatePosts) => updateDoc(doc(db, "posts", id), updatePosts);
+
+export const like = (userId, idPost) => updateDoc(doc(db, "posts", idPost), {
+  like: arrayUnion(userId),
+});
+
+export const dislike = (userId, idPost) => updateDoc(doc(db, "posts", idPost), {
+  like: arrayRemove(userId),
+});
