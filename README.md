@@ -64,3 +64,5 @@ Para verificar que nuestra aplicacion tuviera los adecuados criterios de diseño
 
 
 ### 2.5 Despliegue GitHub pages
+<a href="https://https://nevenkavelizm.github.io/SCL019-social-network/">codeZan👨‍💻</a>.
+
