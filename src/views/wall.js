@@ -58,7 +58,7 @@ export const viewWall = () => {
   // ............................................................................
 
   const btnInputModal = wallContainer.querySelector("#btn-input-modal");
-  btnInputModal.addEventListener("click", () => { // evento que mostrara la modal para publicar
+  btnInputModal.addEventListener("click", () => { // evento que mostrara modal para publicar
     document.querySelector("#modal-background-post").style.display = "flex";
     document.querySelector("#modal-content-post").style.display = "block";
     document.body.style.overflow = "hidden";
