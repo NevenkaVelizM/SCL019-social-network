@@ -180,11 +180,6 @@ margin-right: 50px;
   color: #00FF0A;
   cursor: pointer;
 }
-/* .rabbit-img,
-.loginRabbit-img {
-  display: none;
-} */
-
 
 /*//////////////// LOGIN VIEW ////////////*/
 
@@ -202,9 +197,7 @@ margin-right: 50px;
   margin-left: 23px;
 
 }
-/* .loginLoginText{
-    position: relative;
-} */
+
 .welcomeText{
   margin-top: 40px;
   margin-bottom: 40px;
@@ -259,7 +252,6 @@ margin-right: 50px;
   grid-row: 1/1;
   height: 100%;
   width: 100%;
-  /* margin-bottom: 10%; */
   display: flex;
   background-color: #121111;
   align-items: center;

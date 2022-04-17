@@ -140,15 +140,9 @@
       justify-content: flex-end;
       flex-direction: column;
       margin-top: 57px;
-     /*margin-left: 589px; */
+    
    }
-   /* .rabbit-img, .loginRabbit-img{
-     display: flex;
-     transform: scaleX(-1);
-     width: 25%;
-     margin-left: 225px;
-     margin-top: 55px;
-   } */
+
    .sectionReturn{
      display: flex;
      justify-content: center;
@@ -176,7 +170,7 @@
    /* ------- SECCION LOGIN --------- */
   
    .loginContainer{
-     --border-width: 3px; /* OJO NUEVA ANOTACION*/
+     --border-width: 3px; 
      position: absolute;
      width: 1300px;
      height: 580px;
@@ -263,20 +257,20 @@
    #container-likes {/*contenedor de like texto e imagenes*/
     width: 10%;
   }
-  #modal-background-post{ /*Fondo de la modal para publicar*/
+  #modal-background-post{ /*Fondo del modal para publicar*/
     width: 50%;
   }
   
-  #modal-content-post { /*contenido de la modal para publicar*/
+  #modal-content-post { /*contenido del modal para publicar*/
     width: 55%;
     top: 160px;
   }
   
-  #container-modal-delete{/*Fondo de la modal confirmar, para eliminar el post*/
+  #container-modal-delete{/*Fondo del modal confirmar, para eliminar el post*/
     width: 50%;
   }
   
-  #modal-content-delete {/*contenido de la modal confirmar, para eliminar el post*/
+  #modal-content-delete {/*contenido del modal confirmar, para eliminar el post*/
     width: 45%;
   }
   
